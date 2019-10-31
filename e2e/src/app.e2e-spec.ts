@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('PCWebui app is running!');
+    expect(page.getTitleText()).toEqual('Business Management');
   });
 
   afterEach(async () => {

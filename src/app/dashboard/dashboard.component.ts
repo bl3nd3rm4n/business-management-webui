@@ -20,6 +20,6 @@ export class DashboardComponent {
     {text: 'Reports', cols: 1, rows: 4, color: 'lightgreen', link: ''},
     {text: 'Playground', cols: 1, rows: 2, color: 'lightpink', link: '/playground'},
     {text: 'Settings', cols: 2, rows: 2, color: '#DDBDF1', link: ''},
-    {text: 'Relu #1 Manager', rows: 2, cols: 4, color: 'lightyellow', link: ''}
+    {text: 'Relu #1 Manager ma boy bodan', rows: 2, cols: 4, color: 'lightyellow', link: ''}
   ];
 }

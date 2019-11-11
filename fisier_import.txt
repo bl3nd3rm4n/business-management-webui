@@ -1,0 +1,17 @@
+npm install @ngx-translate/core --save
+
+npm install @ngx-translate/http-loader --save
+
+npm install ngx-toastr --save
+
+npm install bootstrap --save
+
+npm install primeng --save
+
+npm install @angular/animations --save
+
+npm i @angular/material
+
+npm i primeicons
+
+npm i @angulat/cdk

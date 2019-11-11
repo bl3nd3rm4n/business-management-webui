@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 export interface Tile {
   color: string;
@@ -7,14 +8,13 @@ export interface Tile {
   text: string;
   link: string;
 }
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+export class DashboardComponent implements OnInit {
 
-export class DashboardComponent {
   tiles: Tile[] = [
     {text: 'Profile', cols: 3, rows: 2, color: 'lightblue', link: '/profile'},
     {text: 'Reports', cols: 1, rows: 4, color: 'lightgreen', link: ''},
@@ -22,4 +22,13 @@ export class DashboardComponent {
     {text: 'Settings', cols: 2, rows: 2, color: '#DDBDF1', link: ''},
     {text: 'Relu #1 Manager ma boy bodan', rows: 2, cols: 4, color: 'lightyellow', link: ''}
   ];
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+  }
+  logout() {
+    console.log('You ve been logout');
+    this.router.navigate(['/login']);
+  }
+
 }

@@ -90,15 +90,19 @@
     </div>
     <br><br>
     <div>
-      <button  [disabled]="f.invalid"
-               class ="btn btn-primary btn-lg"
-      >
-        {{'LOGIN.REGISTERBUTTON' | translate}}
-      </button>
+        <button
+          (click)="register_navigate()"
+          class ="btn btn-primary btn-lg"
+        >
+          {{'LOGIN.REGISTERBUTTON' | translate}}
+        </button>
     </div>
     <br><br>
     <!-- END CAPTCHA -->
 
   </div>
 </form>
+
+
+
 

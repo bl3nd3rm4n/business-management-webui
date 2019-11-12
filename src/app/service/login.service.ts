@@ -9,5 +9,8 @@ import {Observable} from "rxjs";
 export class LoginService {
 
   constructor(private backendService: BackendService) { }
-
+  // :Observable<User>
+  sentToBackendUserCredentials(loginCreds: Login) {
+    return this.backendService.post('http://localhost:8080/login/', loginCreds);
+  }
 }

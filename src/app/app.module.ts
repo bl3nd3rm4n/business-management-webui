@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PlaygroundComponent } from './playground/playground.component';
 import { ProfileComponent } from './profile/profile.component';
 import {MatGridListModule, MatToolbarModule} from "@angular/material";
+import { RegisterComponent } from './register/register.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -30,7 +31,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ProfilePageComponent,
     DashboardComponent,
     PlaygroundComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

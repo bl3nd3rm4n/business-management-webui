@@ -16,7 +16,7 @@ export interface Tile {
 export class DashboardComponent implements OnInit {
 
   tiles: Tile[] = [
-    {text: 'Profile', cols: 3, rows: 2, color: 'lightblue', link: '/profile'},
+    {text: 'Profile', cols: 3, rows: 2, color: 'lightblue', link: '/dashboard/profile-page'},
     {text: 'Reports', cols: 1, rows: 4, color: 'lightgreen', link: ''},
     {text: 'Playground', cols: 1, rows: 2, color: 'lightpink', link: '/playground'},
     {text: 'Settings', cols: 2, rows: 2, color: '#DDBDF1', link: ''},

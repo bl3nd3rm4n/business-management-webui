@@ -50,5 +50,8 @@ export class LoginComponent implements OnInit {
     console.log(this.text);
 
   }
+  register_navigate() {
+    this.router.navigate(['/register']);
+  }
 
 }

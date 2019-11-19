@@ -6,6 +6,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProfilePageComponent} from "./profile-page/profile-page.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {RegisterComponent} from "./register/register.component";
+import {PlaygroundComponent} from "./playground/playground.component";
 
 
 export const routes: Routes = [
@@ -37,6 +38,10 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'playground',
+    component: PlaygroundComponent
   }
 ];
 

@@ -14,4 +14,12 @@ npm i @angular/material
 
 npm i primeicons
 
-npm i @angulat/cdk
+npm i @angular/cdk
+
+npm i ng2-file-upload
+
+npm i ng2-file-size
+
+npm install chart.js --save
+
+npm install ng2-charts@2.3.0 --save

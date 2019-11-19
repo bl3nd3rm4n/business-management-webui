@@ -11,6 +11,6 @@ export class LoginService {
   constructor(private backendService: BackendService) { }
   // :Observable<User>
   sentToBackendUserCredentials(loginCreds: Login) {
-    return this.backendService.post('http://localhost:8080/login/', loginCreds);
+    return this.backendService.get('http://localhost:6543/login',loginCreds);
   }
 }

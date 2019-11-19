@@ -18,8 +18,23 @@ import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PlaygroundComponent } from './playground/playground.component';
 import { ProfileComponent } from './profile/profile.component';
-import {MatGridListModule, MatToolbarModule} from "@angular/material";
+import {
+  MatCardModule,
+  MatDividerModule,
+  MatGridListModule, MatListModule,
+  MatSlideToggleModule,
+  MatTabsModule,
+  MatToolbarModule
+} from "@angular/material";
 import { RegisterComponent } from './register/register.component';
+import {SharedModule} from "primeng/shared";
+import {CardModule} from "primeng/card";
+import {FileSelectDirective} from "ng2-file-upload";
+import {Ng2FileSizeModule} from 'ng2-file-size';
+import { SkillChartComponent } from './skill-chart/skill-chart.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import {ChartModule} from "primeng/chart";
+import {ChartsModule} from "ng2-charts";
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -32,16 +47,28 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DashboardComponent,
     PlaygroundComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    FileSelectDirective,
+    SkillChartComponent,
+    PersonalInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CardModule,
     MatToolbarModule,
     MatGridListModule,
     BrowserAnimationsModule,
     FormsModule,
+    Ng2FileSizeModule,
+    MatSlideToggleModule,
+    MatTabsModule,
+    MatListModule,
+    ChartsModule,
+    MatCardModule,
+    MatDividerModule,
+    SharedModule,
     RouterModule.forRoot(routes),
     ToastrModule.forRoot(),
     TranslateModule.forRoot({

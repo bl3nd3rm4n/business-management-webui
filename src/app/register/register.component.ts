@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ToastrService} from "ngx-toastr";
+import {TranslateService} from "@ngx-translate/core";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toatrservice: ToastrService, private translateservice: TranslateService) { }
 
   ngOnInit() {
+  }
+  registerUser(createUserForm: NgForm){
   }
 
 }

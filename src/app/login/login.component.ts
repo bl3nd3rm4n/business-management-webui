@@ -4,6 +4,7 @@ import {Login} from '../models/login.model';
 import {ToastrService} from "ngx-toastr";
 import {Router} from '@angular/router';
 import {AuthService} from '../service/auth.service';
+import {LoginService} from "../service/login.service";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   text: number;
 
   constructor(private translateService: TranslateService, private toasterService: ToastrService,
-              private router: Router, private authservice: AuthService) { }
+              private router: Router, private authservice: AuthService, private loginservice: LoginService) { }
 
   ngOnInit() {
     this.generateNumbers();
@@ -35,13 +36,35 @@ export class LoginComponent implements OnInit {
       this.generateNumbers();
       return;
     }
-    if(username.value !== 'util1' && pass.value !== "aaa")  {
+    this.loginservice.sentToBackendUserCredentials(this.loginCreds).subscribe(
+      response => {
+        console.log("response is", response);
+
+        this.toasterService.success(this.translateService.instant('NOTIFICATION.LOGIN_SUCCESS'));
+        this.authservice.loggedInSetter();
+        this.router.navigate(['/dashboard']);
+      },
+      (error) => {
+        console.log(error);
+
+        if(error.error === 'User has not been found'){
+          this.toasterService.error(this.translateService.instant('LOGIN.USERNOTFOUND'));
+        }
+        else if(error.error === 'Credentials are invalid!'){
+          this.toasterService.error(this.translateService.instant('LOGIN.CREDENTIALSINVALID'));
+        }
+        else{
+          this.toasterService.error(error);
+        }
+      }
+    );
+    /*if(username.value !== 'util1' && pass.value !== "aaa")  {
       this.toasterService.error(this.translateService.instant('NOTIFICATION.INVALID_CREDENTIALS'));
       this.generateNumbers();
       return;
     }else{
       this.authservice.loggedInSetter();
-      this.router.navigate(['/dashboard']);}
+      this.router.navigate(['/dashboard']);}*/
   }
   generateNumbers() {
 

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { SkillsComponent } from './skills/skills.component';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  @ViewChild('personalInfoChild', { static: true }) personalInfoChild: SkillsComponent;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onEditModeChanged(event: MatSlideToggleChange) {
+    console.log(event.checked);
+    this.personalInfoChild.toggleEditMode(event.checked);
   }
 
 }

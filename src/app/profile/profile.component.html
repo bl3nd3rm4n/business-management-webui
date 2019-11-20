@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-end">
-            <mat-slide-toggle labelPosition='before'>Edit mode</mat-slide-toggle>
+            <mat-slide-toggle (change)="onEditModeChanged($event)" labelPosition='before'>Edit mode</mat-slide-toggle>
     </div>
     <div class="row">
         <div class="col-lg-4 col-md-5 col-sm-12">
@@ -15,53 +15,13 @@
         <div class="col-sm-12">
             <mat-tab-group mat-align-tabs="center">
                 <mat-tab label="Personal info">
-                     <mat-list>
-                        <mat-list-item>
-                            <p matLine>Databases - design and optimization</p>
-                            <p matLine>MySQL - Advanced</p>
-                            <p matLine>Firebase - Beginner</p>
-                            <p matLine>MongoDB - Intermediate</p>
-                            2 Years total experience
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Age: 21</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Weight: 12kg</mat-list-item>
-                     </mat-list>
+                    <app-skills #personalInfoChild></app-skills>
                 </mat-tab>
                 <mat-tab label="Skills">
-                     <mat-list>
-                        <mat-list-item>
-                                <p matLine>Address</p>
-                                <p matLine>Arad, Calea Aurel Vlaicu, Bloc 6</p>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Skill 2</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Skill 3</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Skill 4</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Skill 5</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Skill 6</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Skill 7</mat-list-item>
-                     </mat-list>
+                    <app-skills #skillsChild></app-skills>
                 </mat-tab>
                 <mat-tab label="Projects">
-                    <mat-list>
-                        <mat-list-item>
-                            <h3 matLine>Very interesting project</h3>
-                            <p matLine>Domain: Automotive</p>
-                            <p matLine>Role: UX UI Designer</p>
-                            2018-2019
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Project 2</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item>Project 3</mat-list-item>
-                    </mat-list>
+                    <app-skills #projectsChild></app-skills>
                 </mat-tab>
             </mat-tab-group>
         </div>

@@ -1,21 +1,20 @@
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkillChartComponent } from './skill-chart.component';
+import { RegisterComponent } from './register.component';
 
-describe('SkillChartComponent', () => {
-  let component: SkillChartComponent;
-  let fixture: ComponentFixture<SkillChartComponent>;
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkillChartComponent ]
+      declarations: [ RegisterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkillChartComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,4 +23,3 @@ describe('SkillChartComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

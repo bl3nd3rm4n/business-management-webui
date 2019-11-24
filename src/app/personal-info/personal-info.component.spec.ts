@@ -1,25 +1,27 @@
-// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { PersonalInfoComponent } from './personal-info.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// describe('PersonalInfoComponent', () => {
-//   let component: PersonalInfoComponent;
-//   let fixture: ComponentFixture<PersonalInfoComponent>;
+import { PersonalInfoComponent } from './personal-info.component';
 
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ PersonalInfoComponent ]
-//     })
-//     .compileComponents();
-//   }));
+describe('PersonalInfoComponent', () => {
+  let component: PersonalInfoComponent;
+  let fixture: ComponentFixture<PersonalInfoComponent>;
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(PersonalInfoComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PersonalInfoComponent ]
+    })
+    .compileComponents();
+  }));
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PersonalInfoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+

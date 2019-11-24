@@ -8,7 +8,7 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./skill-chart.component.scss']
 })
 export class SkillChartComponent implements OnInit {
-  // Pie
+
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {

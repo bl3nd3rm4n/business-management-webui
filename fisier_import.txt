@@ -1,0 +1,25 @@
+npm install @ngx-translate/core --save
+
+npm install @ngx-translate/http-loader --save
+
+npm install ngx-toastr --save
+
+npm install bootstrap --save
+
+npm install primeng --save
+
+npm install @angular/animations --save
+
+npm i @angular/material
+
+npm i primeicons
+
+npm i @angular/cdk
+
+npm i ng2-file-upload
+
+npm i ng2-file-size
+
+npm install chart.js --save
+
+npm install ng2-charts@2.3.0 --save

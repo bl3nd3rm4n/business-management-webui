@@ -1,0 +1,167 @@
+<!-- <div class="introduction">
+    <h2>Create a new user</h2>
+</div> -->
+
+<div style = "margin-left:30%; width: 550px;">
+  <p-card header="{{'CREATE.ADD' | translate}}" subheader="">
+    <form #createUserForm="ngForm" (ngSubmit) = registerUser(createUserForm)>
+      <div class="requiredNote">
+        {{'CREATE.MANDATORYFIELDS' | translate}}
+      </div>
+      <div class = "form-style">
+        <label class="required" for="firstName">{{'CREATE.FIRSTNAME' | translate}}</label>
+        <input
+          required
+          pattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+          id = "firstName"
+          name = "firstName"
+          class = "form-control"
+          #firstName = "ngModel"
+          ngModel
+        >
+      </div>
+      <div style="width:400px" *ngIf="firstName.touched && firstName.invalid">
+        <div *ngIf = "firstName.errors.required" style = "color:red">
+          {{'NOTIFICATION.FIRSTNAMEREQUIRED' | translate}}
+
+        </div>
+        <div *ngIf = "firstName.errors.pattern" style = "color:red">
+          {{'NOTIFICATION.INVALIDFIRSTNAME' | translate}}
+
+        </div>
+      </div>
+      <div class = "form-style">
+        <label class="required" for="lastName">{{'CREATE.LASTNAME' | translate}}</label>
+        <input
+          required
+          pattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+          id = "lastName"
+          name = "lastName"
+          class = "form-control"
+          #lastName = "ngModel"
+          ngModel
+        >
+      </div>
+      <div style="width:400px" *ngIf="lastName.touched && lastName.invalid">
+        <div *ngIf = "lastName.errors.required" style = "color:red">
+          {{'NOTIFICATION.LASTNAMEREQUIRED' | translate}}
+
+        </div>
+        <div *ngIf = "lastName.errors.pattern" style = "color:red">
+          {{'NOTIFICATION.INVALIDLASTNAME' | translate}}
+
+        </div>
+      </div>
+      <div class="form-style">
+        <label  for="email" class = "required">{{'CREATE.EMAIL' | translate}}</label>
+      </div>
+      <div class = "form-inline">
+        <!-- <div style="width:400px"> -->
+        <input
+          required
+          pattern = "^[a-zA-Z0-9_.+-]+$"
+          id = "email"
+          name = "email"
+          class = "form-control"
+          #email = "ngModel"
+          ngModel
+          style = "width: 245px;"
+        >
+        <!-- </div> -->
+        <!-- <div style = "width:400px"> -->
+        <input type="text"
+               readonly class="form-control-plaintext"
+               value = "@nobodycares.com"
+               style = "width: 140px; margin-left:15px;">
+        <!-- </div> -->
+      </div>
+      <div style="width:400px" *ngIf="email.touched && email.invalid">
+        <div *ngIf = "email.errors.required" style = "color:red">
+
+          {{'NOTIFICATION.EMAILREQUIRED' | translate}}
+
+        </div>
+        <div *ngIf = "email.errors.pattern" style = "color:red">
+
+          {{'NOTIFICATION.INVALIDEMAIL' | translate}}
+
+        </div>
+      </div>
+      <div class = "form-style">
+        <label class="required" for="mobileNumber">{{'CREATE.MOBILENUMBER' | translate}}</label>
+        <input
+          pattern = "(\+4[0][7][0-9]{8})|(\(?\+\(?49\)?[ ()]?([- ()]?\d[- ()]?){10})"
+          required
+          id = "mobileNumber"
+          name = "mobileNumber"
+          class = "form-control"
+          #mobileNumber = "ngModel"
+          ngModel
+        >
+      </div>
+      <div style="width:400px" *ngIf="mobileNumber.touched && mobileNumber.invalid">
+        <div *ngIf = "mobileNumber.errors.required" style = "color:red">
+          {{'NOTIFICATION.MOBILENUMBERREQUIRED' | translate}}
+
+        </div>
+        <div *ngIf = "mobileNumber.errors.pattern" style = "color:red">
+
+          {{'NOTIFICATION.INVALIDMOBILENUMBER' | translate}}
+
+        </div>
+      </div>
+      <div class = "form-style">
+        <label class="required" for="password">{{'CREATE.PASSWORD' | translate}}</label>
+        <input
+          required
+          id = "password"
+          name = "password"
+          class = "form-control"
+          type = "password"
+          #password = "ngModel"
+          ngModel
+        >
+      </div>
+      <div style="width:400px" *ngIf="password.touched && password.invalid">
+        <div *ngIf = "password.errors.required" style = "color:red">
+          {{'NOTIFICATION.PASSWORDREQUIRED' | translate}}
+
+        </div>
+      </div>
+      <p style = "margin-top: 25px; margin-bottom: 2%; font-weight: bold;">{{'CREATE.ROLES' | translate}}</p>
+      <div *ngFor = "let role of roles" class = "checkbox">
+        <label>
+          <input type = "checkbox"
+                 [(ngModel)] = "role.checked"
+                 name = "role"
+                 id = "role{{role.id}}"
+                 [value] = "role.id">
+          {{role.type}}
+        </label>
+      </div>
+      <div class="form-style">
+        <label for="attachment">{{'BDETAILS.ATTACHMENT' | translate}}</label>
+      </div>
+      <div class = "form-inline">
+        <input
+          class="form-control-file ng-touched ng-dirty ng-invalid"
+          id="attachment"
+          name="attachment"
+          type="file"
+          accept=".pdf,.doc,.odf,.xlsx,.xls,.jpg,.png"
+          [ng2FileSize]="{ max: 25000 }"
+          [fileSizeErrorMsg]="'File size must be less than 25MB.'"
+          #attachment="ngModel"
+          ngModel
+        >
+      </div>
+      <div style="color:dimgrey; font-style: italic; font-size:10px">
+        {{'BDETAILS.FILEWARNING' | translate}}
+      </div>
+
+      <button class = "btn btn-primary" style = "margin-top:3%" [disabled]="createUserForm.invalid">{{'CREATE.ADDUSER' | translate}}</button>
+    </form>
+
+  </p-card>
+</div>
+

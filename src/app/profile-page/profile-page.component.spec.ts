@@ -1,21 +1,20 @@
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkillChartComponent } from './skill-chart.component';
+import { ProfilePageComponent } from './profile-page.component';
 
-describe('SkillChartComponent', () => {
-  let component: SkillChartComponent;
-  let fixture: ComponentFixture<SkillChartComponent>;
+describe('ProfilePageComponent', () => {
+  let component: ProfilePageComponent;
+  let fixture: ComponentFixture<ProfilePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkillChartComponent ]
+      declarations: [ ProfilePageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkillChartComponent);
+    fixture = TestBed.createComponent(ProfilePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,4 +23,3 @@ describe('SkillChartComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

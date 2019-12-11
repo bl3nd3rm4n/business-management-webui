@@ -18,7 +18,8 @@ import {FormsModule} from "@angular/forms";
 import { TabViewModule } from 'primeng/components/tabview/tabview';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PlaygroundComponent } from './playground/playground.component';
-
+import {MatTableModule} from '@angular/material/table';
+import { Observable } from 'rxjs';
 import { ProfileComponent } from './profile/profile.component';
 import {
   MatCardModule,
@@ -44,6 +45,7 @@ import {ChartModule} from "primeng/chart";
 import {ChartsModule} from "ng2-charts";
 
 import { MatButtonModule } from '@angular/material/button';
+import { UserProjectsTableComponent } from './user-projects-table/user-projects-table.component';
 import {RegisterService} from "./service/register.service";
 import { SupervisorComponent } from './supervisor/supervisor.component';
 
@@ -65,6 +67,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PersonalInfoComponent,
     PersonalInfoComponent,
     SkillChartComponent,
+    UserProjectsTableComponent,
     SupervisorComponent
   ],
   imports: [
@@ -74,6 +77,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CardModule,
     MatToolbarModule,
     MatGridListModule,
+    MatTableModule,
     BrowserAnimationsModule,
     FormsModule,
     Ng2FileSizeModule,

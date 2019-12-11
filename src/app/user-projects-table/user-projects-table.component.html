@@ -1,0 +1,33 @@
+<table mat-table
+       [dataSource]="projectExperienceEntries" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column.value}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column.displayName}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div>
+          <h2> {{element.projectName}} </h2>
+          <strong> Project start date:  </strong> <span> {{element.projectStartDate}} </span> <br>
+          <strong> Project end date: </strong> <span> {{element.projectEndDate}} </span> <br>
+          <strong>Client name:</strong> <span> {{element.clientName}} </span> <br>
+          <strong>Client address:</strong> <span> {{element.clientAddress}} </span> <br>
+          <strong>Description:</strong> <p> {{element.description}} </p>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="allColls"></tr>
+  <tr mat-row *matRowDef="let element; columns: allColls;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

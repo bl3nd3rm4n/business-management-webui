@@ -1,21 +1,82 @@
 <mat-card class="example-card">
-  <mat-card-header>
+  <mat-card-header style="text-align: center;">
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>No this is not my dog</mat-card-title>
-    <mat-card-subtitle>But still a good boy</mat-card-subtitle>
+    <mat-card-title>Iulian, the Cute Doggo</mat-card-title>
+    <mat-card-subtitle>Sleep, Eat, Bark and sleep again</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
   <mat-card-content>
-    <p>
-      Fusce egestas eros vel ipsum tempor, a egestas arcu consectetur.
-      Sed faucibus ut elit pretium accumsan. Curabitur a nulla elementum, malesuada augue quis, tempus sapien.
-      Fusce luctus gravida neque sit amet dapibus. Nulla a tellus ex. Vestibulum hendrerit aliquam nulla, eget
-      fringilla sem sollicitudin ut.
-    </p>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Personal data
+          </mat-panel-title>
+          <mat-panel-description>
+            Edit your personal info
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input matInput placeholder="First name" value="Adrian">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" value="Celentano">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Age" value="22">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Role" value="Supervisor">
+        </mat-form-field>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Project data
+          </mat-panel-title>
+          <mat-panel-description>
+            Edit your project info
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input matInput placeholder="Current project" value="2019/6 : Agile Project NTT Data">
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Skills panel
+          </mat-panel-title>
+          <mat-panel-description>
+            Currently I am good at
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field class="example-chip-list">
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip *ngFor="let skill of skills" [selectable]="selectable"
+                      [removable]="removable" (removed)="remove(skill)">
+              {{skill.name}}
+              <mat-icon matChipRemove *ngIf="removable"> X </mat-icon>
+            </mat-chip>
+            <input placeholder="New skill..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LOREM</button>
-    <button mat-button>IPSUM</button>
+    <button mat-button >Edit changes</button>
   </mat-card-actions>
 </mat-card>
 

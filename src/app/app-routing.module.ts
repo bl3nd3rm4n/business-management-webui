@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthGuardService} from './guards/auth-guard.service';
-import {LoginComponent} from './login/login.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {ProfilePageComponent} from './profile-page/profile-page.component';
-import {ProfileComponent} from './profile/profile.component';
-import {RegisterComponent} from './register/register.component';
-import {PlaygroundComponent} from './playground/playground.component';
+import {AuthGuardService} from "./guards/auth-guard.service";
+import {LoginComponent} from "./login/login.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {ProfilePageComponent} from "./profile-page/profile-page.component";
+import {ProfileComponent} from "./profile/profile.component";
+import {RegisterComponent} from "./register/register.component";
+import {PlaygroundComponent} from "./playground/playground.component";
+import {SupervisorComponent} from "./supervisor/supervisor.component";
+import {PersonalInfoComponent} from "./personal-info/personal-info.component";
 
 
 export const routes: Routes = [
@@ -31,13 +33,13 @@ export const routes: Routes = [
     canActivate: [AuthGuardService],
     children: [
       {
-        path: 'profile-page',
-        component: ProfilePageComponent
+        path: 'personal-info',
+        component: PersonalInfoComponent
+      },
+      {
+        path: 'supervisor',
+        component: SupervisorComponent
       }]
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
   },
   {
     path: 'playground',

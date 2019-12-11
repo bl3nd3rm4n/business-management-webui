@@ -13,11 +13,19 @@
     "CREDENTIALSINVALID": "Invalid credentials !",
     "ACCBLOCKED": "Account is blocked !"
   },
+  "REGISTER": {
+    "EMAIL": "Email address",
+    "PASSWORD": "Password",
+    "REGISTERBUTTON": "Register",
+    "ALREADYREGISTERED": "User already registered",
+    "INVALID": "Invalid"
+  },
 
   "NOTIFICATION": {
     "INVALID_CAPTCHA": "Invalid Captcha",
     "INVALID_CREDENTIALS": "Invalid Credentials",
     "LOGIN_SUCCESS": "Login Successful",
+    "REGISTER_SUCCESS": "Register was succesfull",
     "USEREDITSUCCESS": "User successfully edited ",
     "ASSIGNEDBUGS": "Can not deactivate user because he has assigned bugs",
     "USERCREATESUCCESS": "User successfully created",
@@ -48,6 +56,7 @@
     "ROLEPERMISSION": "Role Permissions",
     "BUGS": "Bugs",
     "PROFILEPAGE": "Profile Page",
+    "SUPERVISOR": "Supervisor",
     "LOGOUT": "Log out",
     "NOT": "Notifications",
     "SIGNEDINAS": "Hello,  ",

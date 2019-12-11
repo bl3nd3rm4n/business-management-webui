@@ -11,11 +11,12 @@ import {RouterModule} from '@angular/router';
 import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {LoginService} from './service/login.service';
-import {DatePipe} from '@angular/common';
-import {AuthGuardService} from './guards/auth-guard.service';
-import {FormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LoginService} from "./service/login.service";
+import {DatePipe} from "@angular/common";
+import {AuthGuardService} from "./guards/auth-guard.service";
+import {FormsModule} from "@angular/forms";
+import { TabViewModule } from 'primeng/components/tabview/tabview';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PlaygroundComponent } from './playground/playground.component';
 
 import { ProfileComponent } from './profile/profile.component';
@@ -25,8 +26,13 @@ import {
   MatGridListModule, MatListModule,
   MatSlideToggleModule,
   MatTabsModule,
-  MatToolbarModule
-} from '@angular/material';
+  MatExpansionModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatChipsModule,
+  MatIconModule
+} from "@angular/material";
 import { RegisterComponent } from './register/register.component';
 import {SharedModule} from 'primeng/shared';
 import {CardModule} from 'primeng/card';
@@ -34,9 +40,12 @@ import {FileSelectDirective} from 'ng2-file-upload';
 import {Ng2FileSizeModule} from 'ng2-file-size';
 import { SkillChartComponent } from './skill-chart/skill-chart.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
-import {ChartModule} from 'primeng/chart';
-import {ChartsModule} from 'ng2-charts';
+import {ChartModule} from "primeng/chart";
+import {ChartsModule} from "ng2-charts";
+
 import { MatButtonModule } from '@angular/material/button';
+import {RegisterService} from "./service/register.service";
+import { SupervisorComponent } from './supervisor/supervisor.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -55,8 +64,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SkillChartComponent,
     PersonalInfoComponent,
     PersonalInfoComponent,
-    SkillChartComponent
-
+    SkillChartComponent,
+    SupervisorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CardModule,
     MatToolbarModule,
     MatGridListModule,
-
     BrowserAnimationsModule,
     FormsModule,
     Ng2FileSizeModule,
@@ -75,8 +83,14 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ChartsModule,
     MatCardModule,
     MatDividerModule,
+    TabViewModule,
     SharedModule,
     MatButtonModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatChipsModule,
+    MatIconModule,
     RouterModule.forRoot(routes),
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
@@ -87,7 +101,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })
   ],
-  providers: [LoginService, DatePipe, AuthGuardService],
+  providers: [LoginService, DatePipe, AuthGuardService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

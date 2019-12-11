@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
   login(username, pass, captcha) {
     this.loginCreds = {
-      username: username.value,
+      email: username.value,
       password: pass.value
     };
     if (this.text.toString() !== captcha.value.toString()) {
@@ -38,15 +38,13 @@ export class LoginComponent implements OnInit {
     }
     this.loginservice.sentToBackendUserCredentials(this.loginCreds).subscribe(
       response => {
-        console.log('response is', response);
-
+        console.log(response);
         this.toasterService.success(this.translateService.instant('NOTIFICATION.LOGIN_SUCCESS'));
         this.authservice.loggedInSetter();
         this.router.navigate(['/dashboard']);
       },
       (error) => {
         console.log(error);
-
         if (error.error === 'User has not been found') {
           this.toasterService.error(this.translateService.instant('LOGIN.USERNOTFOUND'));
         } else if (error.error === 'Credentials are invalid!') {

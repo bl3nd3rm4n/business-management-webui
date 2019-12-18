@@ -1,0 +1,27 @@
+<ng-template [ngIf]="registrationRequests.length" [ngIfElse]="noRegistrations">
+<table class=".table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Approve/Deny</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let regReq of registrationRequests">
+      <td>{{ regReq.hashedEmail }}</td>
+      <td>{{ regReq.lastName }} {{ regReq.firstName }}</td>
+      <td>{{ regReq.email }}</td>
+      <td>
+      <button mdbBtn type="button" color="success" rounded="true" outline="true" mdbWavesEffect (click)="approveRegistrationRequest(regReq.hashedEmail)"> Approve </button>
+      <button mdbBtn type="button" color="danger" rounded="true" outline="true" mdbWavesEffect (click)="approveRegistrationRequest(regReq.hashedEmail)"> Reject </button>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</ng-template>
+
+<ng-template #noRegistrations>
+  No new account registration requests
+</ng-template>

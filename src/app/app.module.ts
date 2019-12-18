@@ -48,6 +48,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { UserProjectsTableComponent } from './user-projects-table/user-projects-table.component';
 import {RegisterService} from "./service/register.service";
 import { SupervisorComponent } from './supervisor/supervisor.component';
+import { RegistrationRequestsTableComponent } from './registration-requests-table/registration-requests-table.component';
+import { RegistrationRequestsService } from './registration-requests-table/registration-requests.service';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -67,6 +69,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PersonalInfoComponent,
     PersonalInfoComponent,
     SkillChartComponent,
+    SupervisorComponent,
+    RegistrationRequestsTableComponent,
     UserProjectsTableComponent,
     SupervisorComponent
   ],
@@ -105,7 +109,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })
   ],
-  providers: [LoginService, DatePipe, AuthGuardService, RegisterService],
+  providers: [LoginService, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

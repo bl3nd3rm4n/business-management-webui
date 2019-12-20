@@ -21,9 +21,7 @@ export class RegistrationRequestsTableComponent implements OnInit {
   }
 
   approveRegistrationRequest(hashedEmail: string) {
-    console.log("Approving registration");
     this._registrationRequestsService.approveRegistrationRequest(hashedEmail);
-    console.log("Getting everybody");
     this._registrationRequestsService
       .getRegistrationRequests()
       .subscribe(data => (this.registrationRequests = data));

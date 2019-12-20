@@ -10,36 +10,40 @@ export class RegistrationRequestsService {
 
   getRegistrationRequests(): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "200"
+      token: "200"
     });
     return this.httpClient.get(
       "http://localhost:6543/supervisor/registrationRequests",
+      { headers }
     );
   }
 
   approveRegistrationRequest(approvedHashedEmail: string) {
-    const body = new HttpParams().set("hashedEmail", approvedHashedEmail);
+    const body = { hashedEmail: approvedHashedEmail };
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "200"
+      token: "200"
     });
-    this.httpClient.put(
-      "http://localhost:6543/supervisor/approveRegistrationRequest",
-      { headers, body }
-    );
+    this.httpClient
+      .put(
+        "http://localhost:6543/supervisor/approveRegistrationRequest",
+        body,
+        {
+          headers
+        }
+      )
+      .subscribe();
   }
 
   rejectRegistrationRequest(rejectedHashedEmail: string) {
-    const body = new HttpParams().set("hashedEmail", rejectedHashedEmail);
+    const body = { hashedEmail: rejectedHashedEmail };
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "200"
+      token: "200"
     });
 
-    this.httpClient.put(
-      "http://localhost:6543/supervisor/rejectRegistrationRequest",
-      { headers, body }
-    );
+    this.httpClient
+      .put("http://localhost:6543/supervisor/rejectRegistrationRequest", body, {
+        headers
+      })
+      .subscribe();
   }
 }

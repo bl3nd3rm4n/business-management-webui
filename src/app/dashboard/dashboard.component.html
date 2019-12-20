@@ -1,32 +1,33 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1F70E8">
+<nav
+  class="navbar navbar-expand-lg navbar-dark"
+  style="background-color:#1F70E8"
+>
   <a class="navbar-brand" routerLink="notifications">
     <!-- {{'DASHBOARD.JBUGS' | translate}} -->
   </a>
 
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="personal-info">
-        <i class = "pi pi-user"></i>
-        {{'DASHBOARD.PROFILEPAGE' | translate}}
+      <a class="nav-link" routerLink="">
+        <i class="pi pi-sitemap"></i>
+        {{ "DASHBOARD.DASHBOARD" | translate }}
       </a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="supervisor">
-        <i class = "pi pi-sitemap"></i>
-        {{'DASHBOARD.SUPERVISOR' | translate}}
+      <a class="nav-link" routerLink="personal-info">
+        <i class="pi pi-user"></i>
+        {{ "DASHBOARD.PROFILEPAGE" | translate }}
       </a>
     </li>
   </ul>
+
   <ul class="navbar-nav nav-bar-right">
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink (click) = "logout()">
-        <i class = "pi pi-sign-out" (click)="logout()"></i>
-        {{'DASHBOARD.LOGOUT' | translate}}
+      <a class="nav-link" routerLink (click)="logout()">
+        <i class="pi pi-sign-out" (click)="logout()"></i>
+        {{ "DASHBOARD.LOGOUT" | translate }}
       </a>
     </li>
-
   </ul>
 </nav>
 
@@ -46,9 +47,14 @@
       Nutz Io Nutz
     </ng-template>
   </mat-tab>
+  <mat-tab label="Blocked Useres">
+    <ng-template matTabContent>
+      Users that failed to login >= 3 times
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>
 
-<div class="container-fluid main--container" style = "margin-top: 2%;">
+<div class="container-fluid main--container" style="margin-top: 2%;">
   <router-outlet></router-outlet>
 </div>
 <mat-grid-list cols="4" rowHeight="100px">
@@ -57,8 +63,8 @@
     [routerLink]="tile.link"
     [colspan]="tile.cols"
     [rowspan]="tile.rows"
-    [style.background]="tile.color">
-    {{tile.text}}
+    [style.background]="tile.color"
+  >
+    {{ tile.text }}
   </mat-grid-tile>
 </mat-grid-list>
-

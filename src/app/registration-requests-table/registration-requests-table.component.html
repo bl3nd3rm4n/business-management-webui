@@ -1,25 +1,51 @@
 <ng-template [ngIf]="registrationRequests.length" [ngIfElse]="noRegistrations">
-<table class=".table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Approve/Deny</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let regReq of registrationRequests">
-      <td>{{ regReq.hashedEmail }}</td>
-      <td>{{ regReq.lastName }} {{ regReq.firstName }}</td>
-      <td>{{ regReq.email }}</td>
-      <td>
-      <button mdbBtn type="button" color="success" rounded="true" outline="true" mdbWavesEffect (click)="approveRegistrationRequest(regReq.hashedEmail)"> Approve </button>
-      <button mdbBtn type="button" color="danger" rounded="true" outline="true" mdbWavesEffect (click)="approveRegistrationRequest(regReq.hashedEmail)"> Reject </button>
-    </td>
-    </tr>
-  </tbody>
-</table>
+  <table
+    mat-table
+    class="registration-req-table mat-elevation-z8"
+    [dataSource]="registrationRequests"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let regReq">
+        {{ regReq.hashedEmail }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let regReq">
+        {{ regReq.lastName }} {{ regReq.firstName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let regReq">{{ regReq.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="approvedeny">
+      <th mat-header-cell *matHeaderCellDef>Approve/Deny</th>
+      <td mat-cell *matCellDef="let regReq">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="approveRegistrationRequest(regReq.hashedEmail)"
+        >
+          Approve
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="rejectRegistrationRequest(regReq.hashedEmail)"
+        >
+          Reject
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </ng-template>
 
 <ng-template #noRegistrations>

@@ -18,7 +18,6 @@ import {FormsModule} from "@angular/forms";
 import { TabViewModule } from 'primeng/components/tabview/tabview';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PlaygroundComponent } from './playground/playground.component';
-import {MatTableModule} from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { ProfileComponent } from './profile/profile.component';
 import {
@@ -32,7 +31,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatChipsModule,
-  MatIconModule
+  MatIconModule,
+  MatTableModule,
+  MatSortModule
 } from "@angular/material";
 import { RegisterComponent } from './register/register.component';
 import {SharedModule} from 'primeng/shared';
@@ -47,9 +48,8 @@ import {ChartsModule} from "ng2-charts";
 import { MatButtonModule } from '@angular/material/button';
 import { UserProjectsTableComponent } from './user-projects-table/user-projects-table.component';
 import {RegisterService} from "./service/register.service";
-import { SupervisorComponent } from './supervisor/supervisor.component';
 import { RegistrationRequestsTableComponent } from './registration-requests-table/registration-requests-table.component';
-import { RegistrationRequestsService } from './registration-requests-table/registration-requests.service';
+import { RegistrationRequestsService } from './service/registration-requests.service';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -69,10 +69,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PersonalInfoComponent,
     PersonalInfoComponent,
     SkillChartComponent,
-    SupervisorComponent,
     RegistrationRequestsTableComponent,
-    UserProjectsTableComponent,
-    SupervisorComponent
+    UserProjectsTableComponent
   ],
   imports: [
     BrowserModule,

@@ -28,8 +28,6 @@ export class RegisterComponent implements OnInit {
 
     this.registerService.sendToBackendUserRegister(this.registercreds).subscribe(
       response => {
-        console.log("response is", response);
-
         this.toasterService.success(this.translateService.instant('NOTIFICATION.REGISTER_SUCCESS'));
       },
       (error) => {

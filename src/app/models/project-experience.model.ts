@@ -1,4 +1,5 @@
 export interface ProjectExperienceEntry {
+    id: string;
     startDate: string;
     endDate: string;
     consultingLevel: string;
@@ -12,6 +13,7 @@ export interface ProjectExperienceEntry {
 }
 
 export interface ProjectExperienceTransport {
+    id: string;
     startDate: number;
     endDate: number;
     consultingLevel: string;

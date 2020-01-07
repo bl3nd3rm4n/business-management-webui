@@ -17,6 +17,7 @@ import { ProjectExperienceTransport, ProjectExperienceEntry } from '../models/pr
   ],
 })
 export class UserProjectsTableComponent implements OnInit {
+  
   ngOnInit(): void {
     this.projectsService.getProjectForEmail("hans.futterman@test.com").subscribe(resp => {
       let entries: ProjectExperienceEntry[] = [];
@@ -29,6 +30,7 @@ export class UserProjectsTableComponent implements OnInit {
 
   mapProjectExperienceTransportToEntry(transport: ProjectExperienceTransport) : ProjectExperienceEntry {
     return {
+      id: transport.id,
       startDate: this.formatDateTimeToString(new Date(transport.startDate * 1000)),
       endDate: this.formatDateTimeToString(new Date(transport.endDate * 1000)),
       consultingLevel: transport.consultingLevel,

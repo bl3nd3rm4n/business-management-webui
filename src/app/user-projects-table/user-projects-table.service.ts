@@ -13,6 +13,12 @@ export class ProjectsService {
     getProjectForEmail(email: string): Observable<HttpResponse<ProjectExperienceTransport[]>> {
         // http://localhost:6543/users/hans.futterman@test.com/projects
         let baseUrl = 'http://localhost:6543/users/';
-        return this.http.get<ProjectExperienceTransport[]>(baseUrl + email + '/projects', { observe: 'response' });
+        return this
+        .http.get<ProjectExperienceTransport[]>(baseUrl + email + '/projects', { observe: 'response' });
+    }
+
+    getAllProjects(): Observable<HttpResponse<Object[]>> {
+        let url = 'http://localhost:6543/projects';
+        return this.http.get<Object[]>(url, { observe: 'response' });
     }
 }

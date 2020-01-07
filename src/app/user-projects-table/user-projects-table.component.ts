@@ -71,11 +71,3 @@ export class UserProjectsTableComponent implements OnInit {
 
   constructor (private projectsService: ProjectsService) {}
 }
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
-}

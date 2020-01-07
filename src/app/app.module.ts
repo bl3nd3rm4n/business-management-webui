@@ -50,7 +50,8 @@ import { UserProjectsTableComponent } from './user-projects-table/user-projects-
 import {RegisterService} from "./service/register.service";
 import { RegistrationRequestsTableComponent } from './registration-requests-table/registration-requests-table.component';
 import { RegistrationRequestsService } from './service/registration-requests.service';
-
+import { ProjectDropdownComponent } from './project-dropdown/project-dropdown.component';
+import {MatSelectModule} from '@angular/material/select';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -70,13 +71,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PersonalInfoComponent,
     SkillChartComponent,
     RegistrationRequestsTableComponent,
-    UserProjectsTableComponent
+    UserProjectsTableComponent,
+    ProjectDropdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CardModule,
+    MatSelectModule,
     MatToolbarModule,
     MatGridListModule,
     MatTableModule,

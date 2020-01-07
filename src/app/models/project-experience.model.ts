@@ -10,6 +10,7 @@ export interface ProjectExperienceEntry {
     industry: string;
     clientName: string;
     clientAddress: string;
+    itemState: ItemState;
 }
 
 export interface ProjectExperienceTransport {
@@ -24,4 +25,12 @@ export interface ProjectExperienceTransport {
     industry: string;
     clientName: string;
     clientAddress: string;
+    itemState: ItemState;
+}
+
+export enum ItemState {
+    DELETED,
+    ADDED,
+    UPDATED,
+    PERSISTED
 }

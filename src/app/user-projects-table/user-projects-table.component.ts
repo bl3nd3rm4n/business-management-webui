@@ -31,6 +31,7 @@ export class UserProjectsTableComponent implements OnInit {
   mapProjectExperienceTransportToEntry(transport: ProjectExperienceTransport) : ProjectExperienceEntry {
     return {
       id: transport.id,
+      itemState: transport.itemState,
       startDate: this.formatDateTimeToString(new Date(transport.startDate * 1000)),
       endDate: this.formatDateTimeToString(new Date(transport.endDate * 1000)),
       consultingLevel: transport.consultingLevel,

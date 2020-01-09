@@ -21,4 +21,9 @@ export class ProjectsService {
         let url = 'http://localhost:6543/projects';
         return this.http.get<Object[]>(url, { observe: 'response' });
     }
+
+    getAllConsultingLevel(): Observable<HttpResponse<Object[]>> {
+        let url = 'http://localhost:6543/levels';
+        return this.http.get<Object[]>(url, { observe: 'response' });
+    }
 }

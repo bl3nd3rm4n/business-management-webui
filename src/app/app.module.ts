@@ -52,6 +52,7 @@ import { RegistrationRequestsTableComponent } from './registration-requests-tabl
 import { RegistrationRequestsService } from './service/registration-requests.service';
 import { ProjectDropdownComponent } from './project-dropdown/project-dropdown.component';
 import {MatSelectModule} from '@angular/material/select';
+import { LevelsDropdownComponent } from './levels-dropdown/levels-dropdown.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -72,7 +73,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SkillChartComponent,
     RegistrationRequestsTableComponent,
     UserProjectsTableComponent,
-    ProjectDropdownComponent
+    ProjectDropdownComponent,
+    LevelsDropdownComponent
   ],
   imports: [
     BrowserModule,

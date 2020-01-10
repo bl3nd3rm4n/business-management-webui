@@ -1,3 +1,5 @@
+<button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">Add entry</button>
+
 <table mat-table
        [dataSource]="projectExperienceEntries" multiTemplateDataRows
        class="mat-elevation-z8">
@@ -39,3 +41,7 @@
     </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
+
+<button mat-flat-button color="accent" (click)="render()">Refresh</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button mat-flat-button color="accent" (click)="saveEditsHandler()" *ngIf="editMode">Save edits</button>

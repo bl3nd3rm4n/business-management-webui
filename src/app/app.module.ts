@@ -22,6 +22,7 @@ import { Observable } from 'rxjs';
 import { ProfileComponent } from './profile/profile.component';
 import {
   MatCardModule,
+  MatDialogModule,
   MatDividerModule,
   MatGridListModule, MatListModule,
   MatSlideToggleModule,
@@ -80,6 +81,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDialogModule,
     CardModule,
     MatSelectModule,
     MatToolbarModule,

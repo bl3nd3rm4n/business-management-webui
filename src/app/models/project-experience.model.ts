@@ -44,6 +44,12 @@ export interface FullUserSpecification {
     region: string;
 }
 
+export interface ChangeModel {
+    changeType: string;
+    resource: string;
+    args: any;
+}
+
 export enum ItemState {
     DELETED,
     ADDED,

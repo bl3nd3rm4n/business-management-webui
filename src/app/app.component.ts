@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 
+function useLanguage(language: any) {
+  this.translate.use(language);
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,6 +19,12 @@ export class AppComponent {
     translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ro/) ? browserLang : 'en');
+    translate.use('en');
+
+
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
   }
 }

@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { TranslateService } from "@ngx-translate/core";
-import { Login } from "../models/login.model";
-import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
-import { AuthService } from "../service/auth.service";
-import { LoginService } from "../service/login.service";
-import { Subject } from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Login } from '../models/login.model';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
+import { LoginService } from '../service/login.service';
+import { Subject } from 'rxjs';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginCreds: Login;
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.generateNumbers();
-    localStorage.setItem("loggedIn", "false");
+    localStorage.setItem('loggedIn', 'false');
   }
 
   login(username, pass, captcha) {
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
     if (this.text.toString() !== captcha.value.toString()) {
       this.toasterService.error(
-        this.translateService.instant("NOTIFICATION.INVALID_CAPTCHA")
+        this.translateService.instant('NOTIFICATION.INVALID_CAPTCHA')
       );
       this.generateNumbers();
       return;
@@ -46,21 +46,21 @@ export class LoginComponent implements OnInit {
     this.loginservice.sentToBackendUserCredentials(this.loginCreds).subscribe(
       response => {
         this.toasterService.success(
-          this.translateService.instant("NOTIFICATION.LOGIN_SUCCESS")
+          this.translateService.instant('NOTIFICATION.LOGIN_SUCCESS')
         );
         this.setToken(JSON.parse(response).token);
         this.authservice.loggedInSetter();
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(['/dashboard']);
       },
       error => {
         console.log(error);
-        if (error.error === "User has not been found") {
+        if (error.error === 'User has not been found') {
           this.toasterService.error(
-            this.translateService.instant("LOGIN.USERNOTFOUND")
+            this.translateService.instant('LOGIN.USERNOTFOUND')
           );
-        } else if (error.error === "Credentials are invalid!") {
+        } else if (error.error === 'Credentials are invalid!') {
           this.toasterService.error(
-            this.translateService.instant("LOGIN.CREDENTIALSINVALID")
+            this.translateService.instant('LOGIN.CREDENTIALSINVALID')
           );
         } else {
           this.toasterService.error(error);
@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
   }
 
   register_navigate() {
-    this.router.navigate(["/register"]);
+    this.router.navigate(['/register']);
   }
+
 }

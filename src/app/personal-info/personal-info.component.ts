@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Skill} from "../models/skill.model";
-import {MatChipInputEvent} from "@angular/material";
-import {HttpClient} from "@angular/common/http";
+import {Skill} from '../models/skill.model';
+import {MatChipInputEvent} from '@angular/material';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-personal-info',
@@ -19,7 +19,7 @@ export class PersonalInfoComponent implements OnInit {
   skills: Skill[] = [
     {name: 'C#'},
     {name: 'Java'},
-    {name: 'Typescript'},
+    {name: 'Typescripts'},
   ];
   constructor(private http: HttpClient) { }
 

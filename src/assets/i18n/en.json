@@ -70,7 +70,9 @@
     "Username": "Username",
     "Status": "Status",
     "ACTIVATED": "Activated",
-    "DEACTIVATED": "Deactivated"
+    "DEACTIVATED": "Deactivated",
+    "AGE" : "Age",
+    "ROLE" : "Role"
   },
   "USERDETAILS": {
     "USERDETAIL": "User details",
@@ -199,7 +201,14 @@
     "ADDBUGBUTTON": "Add bug",
     "MANDATORYFIELDS": "* Marked fields are mandatory."
 
-  }
+  },
 
-
+  "UTILS": {
+  "PERSONAL_DATA" : "Personal data",
+  "PROJECT_DATA" : "Project Data",
+  "SKILLS_PANNEL" : "Skills Pannel",
+  "EDIT_PERSONAL" : "Edit personale data",
+  "EDIT_PROJECT" : "Edit Projects",
+  "EDIT_SKILLS" : "Currently I am good at ..."
+}
 }

@@ -19,7 +19,7 @@ export class BlockedUsersTableComponent implements OnInit {
 
   approveBlockedUser(hashedEmail: string) {
     this._blockedUsersService.approveBlockedUser(hashedEmail);
-    this.ngOnInit()
+    this.refreshTable();
   }
 
   rejectBlockedUser(hashedEmail: string) {

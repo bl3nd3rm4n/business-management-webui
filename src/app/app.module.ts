@@ -47,11 +47,11 @@ import {ChartsModule} from "ng2-charts";
 
 import { MatButtonModule } from '@angular/material/button';
 import { UserProjectsTableComponent } from './user-projects-table/user-projects-table.component';
-import {RegisterService} from "./service/register.service";
+import { RegisterService } from "./service/register.service";
 import { RegistrationRequestsTableComponent } from './registration-requests-table/registration-requests-table.component';
-import { RegistrationRequestsService } from './service/registration-requests.service';
+import { RegistrationRequestsService } from './service/registration-requests-table/registration-requests.service';
 import { ProjectDropdownComponent } from './project-dropdown/project-dropdown.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { BlockedUsersTableComponent } from './blocked-users-table/blocked-users-table.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {

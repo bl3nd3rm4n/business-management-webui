@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BlockedUsersTableService } from './blocked-users-table.service';
+import { BlockedUsersTableService } from './blocked-users.service';
 
 describe('BlockedUsersTableService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

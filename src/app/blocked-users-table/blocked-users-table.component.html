@@ -1,1 +1,53 @@
-<p>blocked-users-table works!</p>
+<ng-template [ngIf]="blockedUsers.length" [ngIfElse]="noBlcokedUsers">
+  <table
+    mat-table
+    class="registration-req-table mat-elevation-z8"
+    [dataSource]="blockedUsers"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let blcokedUser">
+        {{ blcokedUser.hashedEmail }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let blcokedUser">
+        {{ blcokedUser.lastName }} {{ blcokedUser.firstName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let blcokedUser">{{ blcokedUser.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="approvedeny">
+      <th mat-header-cell *matHeaderCellDef>Approve/Deny</th>
+      <td mat-cell *matCellDef="let blcokedUser">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="approveBlockedUser(blcokedUser.hashedEmail)"
+        >
+          Approve
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="rejectBlockedUser(blcokedUser.hashedEmail)"
+        >
+          Reject
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</ng-template>
+
+<ng-template #noBlcokedUsers>
+  No blocked Users
+</ng-template>

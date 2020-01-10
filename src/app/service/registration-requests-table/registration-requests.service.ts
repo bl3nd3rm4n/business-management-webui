@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
 })
 export class RegistrationRequestsService {
   url = "http://localhost:6543";
+
   constructor(private httpClient: HttpClient) {}
 
   getRegistrationRequests(): Observable<any> {

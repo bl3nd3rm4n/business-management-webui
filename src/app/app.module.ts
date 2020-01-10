@@ -52,6 +52,7 @@ import { RegistrationRequestsTableComponent } from './registration-requests-tabl
 import { RegistrationRequestsService } from './service/registration-requests.service';
 import { ProjectDropdownComponent } from './project-dropdown/project-dropdown.component';
 import {MatSelectModule} from '@angular/material/select';
+import { BlockedUsersTableComponent } from './blocked-users-table/blocked-users-table.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -72,7 +73,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SkillChartComponent,
     RegistrationRequestsTableComponent,
     UserProjectsTableComponent,
-    ProjectDropdownComponent
+    ProjectDropdownComponent,
+    BlockedUsersTableComponent
   ],
   imports: [
     BrowserModule,

@@ -69,7 +69,7 @@ export class BackendService {
       body: data,
       params,
       headers: {
-        'Accept-Language': 'en'
+        'Accept-Language': 'ro'
       },
       withCredentials: true
     };

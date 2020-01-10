@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { ProjectsService } from './user-projects-table.service';
 import { ProjectExperienceTransport, ProjectExperienceEntry } from '../models/project-experience.model';
@@ -18,10 +18,13 @@ import { ProjectExperienceTransport, ProjectExperienceEntry } from '../models/pr
 })
 export class UserProjectsTableComponent implements OnInit {
   
+  @Input() diffMode: boolean;
+  @Input() editMode: boolean;
+
   ngOnInit(): void {
-    this.projectsService.getProjectForEmail("hans.futterman@test.com").subscribe(resp => {
+    this.projectsService.getFullUserSpecification("hans.futterman@test.com", this.diffMode).subscribe(resp => {
       let entries: ProjectExperienceEntry[] = [];
-      resp.body.forEach(transport => {
+      resp.body.projectExperience.forEach(transport => {
         entries.push(this.mapProjectExperienceTransportToEntry(transport));
       });
       this.projectExperienceEntries = entries;
@@ -70,5 +73,31 @@ export class UserProjectsTableComponent implements OnInit {
   allColls = ['consultingLevel', 'industry', 'startDate', 'endDate'];
   expandedElement: ProjectExperienceEntry | null;
 
+  getAllColumnsToDisplay() {
+    var colls = [];
+    this.columnsToDisplay.forEach(el => {
+      colls.push(el);
+    });
+    if (this.editMode) {
+      colls.push({value: "delete", displayName: "Delete"})
+    }
+    return colls;
+  }
+
+  getAllColls() {
+    var colls = [];
+    this.allColls.forEach(el => {
+      colls.push(el);
+    });
+    if (this.editMode) {
+      colls.push("delete")
+    }
+    return colls;
+  }
+
   constructor (private projectsService: ProjectsService) {}
+
+  deleteHandler(el) {
+    console.log(el);
+  }
 }

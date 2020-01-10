@@ -19,7 +19,27 @@ export class BlockedUsersTableService {
     });
   }
 
-  approveBlockedUser(approvedUser: string) {}
+  approveBlockedUser(approvedUser: string) {
+    const body = { hashedEmail: approvedUser };
+    const headers = new HttpHeaders({
+      token: localStorage.getItem("token")
+    });
+    this.httpClient
+      .put(this.url + "/supervisor/approveBlockedUser", body, {
+        headers
+      })
+      .subscribe();
+  }
 
-  rejectBlockedUser(rejectedUser: string) {}
+  rejectBlockedUser(rejectedUser: string) {
+    const body = { hashedEmail: rejectedUser };
+    const headers = new HttpHeaders({
+      token: localStorage.getItem("token")
+    });
+    this.httpClient
+      .put(this.url + "/supervisor/rejectBlockedUser", body, {
+        headers
+      })
+      .subscribe();
+  }
 }

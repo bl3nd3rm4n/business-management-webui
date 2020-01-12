@@ -1,7 +1,7 @@
 <h4>Select project</h4>
 <mat-form-field>
   <mat-label>Select project</mat-label>
-  <mat-select>
+  <mat-select formControlName="project">
     <mat-option *ngFor="let project of projects" [value]="project.id">
       {{project.name}}
     </mat-option>

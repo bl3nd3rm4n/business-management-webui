@@ -45,3 +45,6 @@
 <button mat-flat-button color="accent" (click)="render()">Refresh</button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button mat-flat-button color="accent" (click)="saveEditsHandler()" *ngIf="editMode">Save edits</button>
+<button mat-flat-button color="accent" (click)="acceptClickHandler()" *ngIf="diffMode">Accept changes</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button mat-flat-button color="accent" (click)="discardClickHandler()" *ngIf="diffMode">Discard changes</button>

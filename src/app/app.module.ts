@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ToastrModule} from 'ngx-toastr';
-
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +19,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PlaygroundComponent } from './playground/playground.component';
 import { Observable } from 'rxjs';
 import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatNativeDateModule } from "@angular/material";
 import {
   MatCardModule,
   MatDialogModule,
@@ -45,7 +46,7 @@ import { SkillChartComponent } from './skill-chart/skill-chart.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { ChartModule } from "primeng/chart";
 import { ChartsModule } from "ng2-charts";
-
+import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatButtonModule } from '@angular/material/button';
 import { UserProjectsTableComponent } from './user-projects-table/user-projects-table.component';
 import { RegisterService } from "./service/register.service";
@@ -55,6 +56,7 @@ import { ProjectDropdownComponent } from './project-dropdown/project-dropdown.co
 import { MatSelectModule } from '@angular/material/select';
 import { BlockedUsersTableComponent } from './blocked-users-table/blocked-users-table.component';
 import { LevelsDropdownComponent } from './levels-dropdown/levels-dropdown.component';
+import { AddProjectDialogComponent } from './add-project-dialog/add-project-dialog.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -76,8 +78,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RegistrationRequestsTableComponent,
     UserProjectsTableComponent,
     ProjectDropdownComponent,
-    BlockedUsersTableComponent
-    LevelsDropdownComponent
+    BlockedUsersTableComponent,
+    LevelsDropdownComponent,
+    AddProjectDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +89,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatDialogModule,
     CardModule,
     MatSelectModule,
+    MatNativeDateModule,
     MatToolbarModule,
     MatGridListModule,
     MatTableModule,
@@ -93,6 +97,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FormsModule,
     Ng2FileSizeModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
     MatTabsModule,
     MatListModule,
     ChartsModule,
@@ -105,6 +110,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
+    ReactiveFormsModule,
     MatIconModule,
     RouterModule.forRoot(routes),
     ToastrModule.forRoot(),
@@ -116,7 +122,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })
   ],
-  providers: [LoginService, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
-  bootstrap: [AppComponent]
+  providers: [LoginService, MatNativeDateModule, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
+  bootstrap: [AppComponent],
+  entryComponents: [AddProjectDialogComponent]
 })
 export class AppModule { }

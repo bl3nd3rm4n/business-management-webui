@@ -3,6 +3,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { ProjectsService } from './user-projects-table.service';
 import { ProjectExperienceTransport, ProjectExperienceEntry, ChangeModel } from '../models/project-experience.model';
 import { getLocaleEraNames } from '@angular/common';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -59,8 +61,8 @@ export class UserProjectsTableComponent implements OnInit {
   formatDateTimeToString(date: Date): string {
     let str: string = '';
     str += date.getFullYear();
-    str += '-' + date.getMonth();
-    str += '-' + date.getDate();
+    str += '-' + (date.getMonth() + 1);
+    str += '-' + (date.getDate() + 1);
     return str;
   }
 
@@ -103,7 +105,25 @@ export class UserProjectsTableComponent implements OnInit {
     return colls;
   }
 
-  constructor (private projectsService: ProjectsService) {}
+  constructor (private projectsService: ProjectsService, private dialog: MatDialog) {}
+
+  openAddProjectDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      id: 1,
+      title: "Add new Project"
+    }
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(AddProjectDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => this.addProject(data)
+    );
+  }
 
   deleteHandler(el) {
     var id = el.id;
@@ -125,16 +145,37 @@ export class UserProjectsTableComponent implements OnInit {
   }
 
   addClickHandler() {
+    this.openAddProjectDialog();
+  }
+
+  acceptClickHandler() {
+    this.projectsService.acceptChanges('hans.futterman@test.com').subscribe();
+  }
+
+  discardClickHandler() {
+    this.projectsService.discardChanges('hans.futterman@test.com').subscribe();
+  }
+
+  addProject(data) {
+    if (!data) {
+      return;
+    }
     var newId = '' + Math.floor(Date.now() / 1000)
     var changeType = 'ADD';
     var resource = 'PROJECT';
+    var startDate = data.startDate;
+    var endDate = data.endDate;
+    
+    if (!startDate || !endDate || !data.consultingLevel || !data.project || !data.description) {
+      return;
+    }
     var args = {
       newId: newId,
-      consultingLevelId: 2,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipscing elit. Mauris bibendum facilisis finibus. Morbi condimentum at augue nec lobortis. Praesent ac arcu quis orci pharetra pretium. Aliquam laoreet massa at purus lobortis, ut tempor sapien sodales. Nunc suscipit dolor eget dui commodo, id iaculis nisl rhoncus. Vestibulum semper ante id tortor sollicitudin, non dignissim lorem varius. Integer sodales varius lobortis. Morbi eget tortor in risus vestibulum pretium. Maecenas iaculis erat id velit cursus hendrerit. Maecenas sed velit eu massa tempus imperdiet. Integer id neque erat. Sed mauris lorem, luctus id urna nec, laoreet feugiat mauris. Vestibulum eget velit at ipsum maximus varius. Curabitur dignissim condimentum odio in auctor. Integer elementum vehicula risus, id sagittis tortor lacinia ac. Nam fringilla, nisl vel fermentum ultrices, nibh nulla elementum arcu, ac volutpat ex ante ut massa.',
-      endDate: 123456789,
-      startDate: 123456789,
-      projectId: 1
+      consultingLevelId: data.consultingLevel,
+      description: data.description,
+      endDate: endDate.getTime() / 1000,
+      startDate: startDate.getTime() / 1000,
+      projectId: data.project
     }
 
     this.projectsService.patchProjectExperience(args).subscribe(r => {

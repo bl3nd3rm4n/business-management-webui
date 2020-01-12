@@ -42,30 +42,13 @@ export class ProjectsService {
         return this.http.post<ProjectExperienceTransport>(url, map);
     }
 
-    /**
-     * POST http://localhost:6543/users/hans.futterman@test.com/create-pending-changes HTTP/1.1
-content-type: application/json
+    acceptChanges(email) {
+      let url = 'http://localhost:6543/users/' + email + '/accept';
+      return this.http.get(url);
+    }
 
-  [
-  {
-    "changeType": "ADD",
-    "resource": "PROJECT",
-    "args": {
-      "newId": 9999,
-      "consultingLevelId": 2,
-      "description": "asdasd",
-      "endDate": 12345678,
-      "startDate": 12345678,
-      "projectId": 1
+    discardChanges(email) {
+      let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
+      return this.http.post(url, []);
     }
-  },
-    {
-    "changeType": "DELETE",
-    "resource": "PROJECT",
-    "args": {
-      "id": 999
-    }
-  }
-]
-     */
 }

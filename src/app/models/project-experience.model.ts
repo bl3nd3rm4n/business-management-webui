@@ -28,6 +28,28 @@ export interface ProjectExperienceTransport {
     itemState: ItemState;
 }
 
+export interface Skill {
+    id: string;
+    name: string;
+    area: string;
+}
+
+export interface FullUserSpecification {
+    skills: Skill[];
+    projectExperience: ProjectExperienceTransport[];
+    consultingLevel: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    region: string;
+}
+
+export interface ChangeModel {
+    changeType: string;
+    resource: string;
+    args: any;
+}
+
 export enum ItemState {
     DELETED,
     ADDED,

@@ -1,7 +1,7 @@
 
 <div style = "position:fixed; left:1340px; top:700px; bottom: 0" >
   <label >
-    {{ 'HOME.SELECT' | translate }}
+    {{ 'HOME.TITLE' | translate }}
     <select #langSelect (change)="translate.use(langSelect.value)">
       <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
     </select>
@@ -19,6 +19,7 @@
     <div id="content-area">
             <router-outlet></router-outlet>
     </div>
-
+  <button (click)="useLanguage('en')">en</button>
+  <button (click)="useLanguage('ro')">ro</button>
 </div>
 

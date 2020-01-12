@@ -45,3 +45,11 @@ table {
   .example-element-description-attribution {
     opacity: 0.5;
   }
+
+  .deleted {
+    background-color: rgb(255, 128, 128);
+  }
+
+  .added {
+    background-color: rgb(112, 207, 112);
+  }

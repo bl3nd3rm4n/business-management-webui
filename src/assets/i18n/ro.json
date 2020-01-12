@@ -99,7 +99,9 @@
     "Username": "Utilizator",
     "Status": "Status",
     "ACTIVATED": "Activ",
-    "DEACTIVATED":"Inactiv"
+    "DEACTIVATED":"Inactiv",
+    "AGE" : "Varsta",
+    "ROLE" : "Rol"
   },
 
   "USERDETAILS": {
@@ -214,8 +216,15 @@
     "MANDATORYFIELDS": "Campurile marcate cu * sunt obligatorii."
 
 
+  },
+
+  "UTILS": {
+    "PERSONAL_DATA" : "Date Personale",
+    "PROJECT_DATA" : "Date Despr Proiect",
+    "SKILLS_PANNEL" : "Panou cu abilitati",
+    "EDIT_PERSONAL" : "Editati-va datele personale",
+    "EDIT_PROJECT" : "Editati-va proiectele",
+    "EDIT_SKILLS" : "Momentan ma pricep la ..."
   }
-
-
 
 }

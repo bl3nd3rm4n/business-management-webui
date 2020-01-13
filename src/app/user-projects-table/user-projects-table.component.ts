@@ -24,7 +24,11 @@ export class UserProjectsTableComponent implements OnInit {
   @Input() diffMode: boolean;
   @Input() editMode: boolean;
   edits: ChangeModel[] = [];
-
+  email: string = "";
+  firstName: string = "";
+  lastName: string = "";
+  region: string = "";
+  consultingLevel: string = "";
 
   ngOnInit(): void {
     this.render();
@@ -32,6 +36,11 @@ export class UserProjectsTableComponent implements OnInit {
 
   render() {
     this.projectsService.getFullUserSpecification("hans.futterman@test.com", this.diffMode).subscribe(resp => {
+      this.email = resp.body.email;
+      this.firstName = resp.body.firstName;
+      this.lastName = resp.body.lastName
+      this.region = resp.body.region;
+      this.consultingLevel = resp.body.consultingLevel;
       let entries: ProjectExperienceEntry[] = [];
       resp.body.projectExperience.forEach(transport => {
         entries.push(this.mapProjectExperienceTransportToEntry(transport));

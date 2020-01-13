@@ -1,4 +1,12 @@
-<button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">Add entry</button>
+<mat-list role="list">
+  <mat-list-item role="listitem">First name: &nbsp;&nbsp;<span>{{firstName}}</span></mat-list-item>
+  <mat-list-item role="listitem">Last name: &nbsp;&nbsp;<span>{{lastName}}</span></mat-list-item>
+  <mat-list-item role="listitem">Email: &nbsp;&nbsp;<span>{{email}}</span></mat-list-item>
+  <mat-list-item role="listitem">Consulting level: &nbsp;&nbsp;<span>{{consultingLevel}}</span></mat-list-item>
+  <mat-list-item role="listitem">Region: &nbsp;&nbsp;<span>{{region}}</span></mat-list-item>
+</mat-list>
+
+<button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">Add project</button>
 
 <table mat-table
        [dataSource]="projectExperienceEntries" multiTemplateDataRows

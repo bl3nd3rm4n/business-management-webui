@@ -30,7 +30,9 @@ export class UserProjectsTableComponent implements OnInit {
   lastName: string = "";
   region: string = "";
   consultingLevel: string = "";
+
   updatedFirstName: boolean = false;
+  updatedLastName: boolean = false;
 
   ngOnInit(): void {
     this.render();
@@ -48,6 +50,11 @@ export class UserProjectsTableComponent implements OnInit {
         this.updatedFirstName = true;
       } else {
         this.updatedFirstName = false;
+      }
+      if (metadata.LAST_NAME === "UPDATE") {
+        this.updatedLastName = true;
+      } else {
+        this.updatedLastName = false;
       }
       let entries: ProjectExperienceEntry[] = [];
       resp.body.projectExperience.forEach(transport => {
@@ -204,6 +211,28 @@ export class UserProjectsTableComponent implements OnInit {
     var resource = "FIRST_NAME";
     var args = {
       firstName: data.value
+    };
+    var changeModel: ChangeModel = {
+      changeType: changeType,
+      resource: resource,
+      args: args
+    }
+    ref.edits.push(changeModel);
+  }
+
+  editLastNameClickHandler() {
+    this.openUpdateStringDialog(this.updateLastName);
+  }
+
+  updateLastName(data, ref) {
+    if (!data || !data.value) {
+      return;
+    }
+    ref.lastName = data.value;
+    var changeType = "UPDATE";
+    var resource = "LAST_NAME";
+    var args = {
+      lastName: data.value
     };
     var changeModel: ChangeModel = {
       changeType: changeType,

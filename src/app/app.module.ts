@@ -57,6 +57,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { BlockedUsersTableComponent } from './blocked-users-table/blocked-users-table.component';
 import { LevelsDropdownComponent } from './levels-dropdown/levels-dropdown.component';
 import { AddProjectDialogComponent } from './add-project-dialog/add-project-dialog.component';
+import { UpdateStringDialogComponent } from './update-string-dialog/update-string-dialog.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -80,7 +81,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ProjectDropdownComponent,
     BlockedUsersTableComponent,
     LevelsDropdownComponent,
-    AddProjectDialogComponent
+    AddProjectDialogComponent,
+    UpdateStringDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +126,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [LoginService, MatNativeDateModule, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
   bootstrap: [AppComponent],
-  entryComponents: [AddProjectDialogComponent]
+  entryComponents: [AddProjectDialogComponent, UpdateStringDialogComponent]
 })
 export class AppModule { }

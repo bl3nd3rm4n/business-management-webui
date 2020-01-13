@@ -5,6 +5,7 @@ import { ProjectExperienceTransport, ProjectExperienceEntry, ChangeModel } from 
 import { getLocaleEraNames } from '@angular/common';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
+import { UpdateStringDialogComponent } from '../update-string-dialog/update-string-dialog.component';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -29,6 +30,7 @@ export class UserProjectsTableComponent implements OnInit {
   lastName: string = "";
   region: string = "";
   consultingLevel: string = "";
+  updatedFirstName: boolean = false;
 
   ngOnInit(): void {
     this.render();
@@ -41,6 +43,12 @@ export class UserProjectsTableComponent implements OnInit {
       this.lastName = resp.body.lastName
       this.region = resp.body.region;
       this.consultingLevel = resp.body.consultingLevel;
+      var metadata = resp.body.metadata;
+      if (metadata.FIRST_NAME && metadata.FIRST_NAME === "UPDATE") {
+        this.updatedFirstName = true;
+      } else {
+        this.updatedFirstName = false;
+      }
       let entries: ProjectExperienceEntry[] = [];
       resp.body.projectExperience.forEach(transport => {
         entries.push(this.mapProjectExperienceTransportToEntry(transport));
@@ -163,6 +171,46 @@ export class UserProjectsTableComponent implements OnInit {
 
   discardClickHandler() {
     this.projectsService.discardChanges('hans.futterman@test.com').subscribe();
+  }
+
+  editFirstNameClickHandler() {
+    this.openUpdateStringDialog(this.updateFirstName);
+  }
+
+  openUpdateStringDialog(action) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      id: 1,
+      title: "Update first name"
+    }
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(UpdateStringDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => action(data, this)
+    );
+  }
+
+  updateFirstName(data, ref) {
+    if (!data || !data.value) {
+      return;
+    }
+    ref.firstName = data.value;
+    var changeType = "UPDATE";
+    var resource = "FIRST_NAME";
+    var args = {
+      firstName: data.value
+    };
+    var changeModel: ChangeModel = {
+      changeType: changeType,
+      resource: resource,
+      args: args
+    }
+    ref.edits.push(changeModel);
   }
 
   addProject(data) {

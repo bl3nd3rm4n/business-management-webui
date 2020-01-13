@@ -42,6 +42,7 @@ export interface FullUserSpecification {
     firstName: string;
     lastName: string;
     region: string;
+    metadata: any;
 }
 
 export interface ChangeModel {

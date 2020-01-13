@@ -6,6 +6,7 @@ import { getLocaleEraNames } from '@angular/common';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
 import { UpdateStringDialogComponent } from '../update-string-dialog/update-string-dialog.component';
+import { UpdateConsultingLevelDialogComponent } from '../update-consulting-level-dialog/update-consulting-level-dialog.component';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -33,6 +34,7 @@ export class UserProjectsTableComponent implements OnInit {
 
   updatedFirstName: boolean = false;
   updatedLastName: boolean = false;
+  updatedConsultingLevel: boolean = false;
 
   ngOnInit(): void {
     this.render();
@@ -55,6 +57,11 @@ export class UserProjectsTableComponent implements OnInit {
         this.updatedLastName = true;
       } else {
         this.updatedLastName = false;
+      }
+      if (metadata.CONSULTING_LEVEL === "UPDATE") {
+        this.updatedConsultingLevel = true;
+      } else {
+        this.updatedConsultingLevel = false;
       }
       let entries: ProjectExperienceEntry[] = [];
       resp.body.projectExperience.forEach(transport => {
@@ -233,6 +240,42 @@ export class UserProjectsTableComponent implements OnInit {
     var resource = "LAST_NAME";
     var args = {
       lastName: data.value
+    };
+    var changeModel: ChangeModel = {
+      changeType: changeType,
+      resource: resource,
+      args: args
+    }
+    ref.edits.push(changeModel);
+  }
+
+  editConsultingLevelClickHandler() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      id: 1,
+      title: ""
+    }
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(UpdateConsultingLevelDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => this.updateConsultingLevel(data, this)
+    );
+  }
+
+  updateConsultingLevel(data, ref) {
+    if (!data || !data.consultingLevel) {
+      return;
+    }
+    ref.consultingLevel = data.consultingLevel.name;
+    var changeType = "UPDATE";
+    var resource = "CONSULTING_LEVEL";
+    var args = {
+      consultingLevelId: data.consultingLevel.id
     };
     var changeModel: ChangeModel = {
       changeType: changeType,

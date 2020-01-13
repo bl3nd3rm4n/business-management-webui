@@ -58,6 +58,7 @@ import { BlockedUsersTableComponent } from './blocked-users-table/blocked-users-
 import { LevelsDropdownComponent } from './levels-dropdown/levels-dropdown.component';
 import { AddProjectDialogComponent } from './add-project-dialog/add-project-dialog.component';
 import { UpdateStringDialogComponent } from './update-string-dialog/update-string-dialog.component';
+import { UpdateConsultingLevelDialogComponent } from './update-consulting-level-dialog/update-consulting-level-dialog.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -82,7 +83,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BlockedUsersTableComponent,
     LevelsDropdownComponent,
     AddProjectDialogComponent,
-    UpdateStringDialogComponent
+    UpdateStringDialogComponent,
+    UpdateConsultingLevelDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +128,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [LoginService, MatNativeDateModule, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
   bootstrap: [AppComponent],
-  entryComponents: [AddProjectDialogComponent, UpdateStringDialogComponent]
+  entryComponents: [AddProjectDialogComponent, UpdateStringDialogComponent, UpdateConsultingLevelDialogComponent]
 })
 export class AppModule { }

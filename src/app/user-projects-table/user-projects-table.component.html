@@ -15,8 +15,20 @@
     &nbsp;&nbsp;
     <button mat-flat-button color="accent" (click)="editLastNameClickHandler()" *ngIf="editMode">Edit</button>
   </mat-list-item>
-  <mat-list-item role="listitem">Email: &nbsp;&nbsp;<span>{{email}}</span></mat-list-item>
-  <mat-list-item role="listitem">Consulting level: &nbsp;&nbsp;<span>{{consultingLevel}}</span></mat-list-item>
+  <mat-list-item role="listitem">
+    Email: &nbsp;&nbsp;
+    <span>
+      {{email}}
+    </span>
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    Consulting level: &nbsp;&nbsp;
+    <span [class.updated]="diffMode === true && updatedConsultingLevel === true">
+      {{consultingLevel}}
+    </span>
+    &nbsp;&nbsp;
+    <button mat-flat-button color="accent" (click)="editConsultingLevelClickHandler()" *ngIf="editMode">Edit</button>
+  </mat-list-item>
   <mat-list-item role="listitem">Region: &nbsp;&nbsp;<span>{{region}}</span></mat-list-item>
 </mat-list>
 

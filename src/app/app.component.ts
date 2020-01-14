@@ -14,8 +14,9 @@ function useLanguage(language: any) {
 export class AppComponent {
   title = 'PCWebui';
 
+
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'ro']);
+    translate.addLangs(['en', 'ro' , 'de']);
     translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();

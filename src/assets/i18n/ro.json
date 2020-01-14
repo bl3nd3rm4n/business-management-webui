@@ -92,7 +92,7 @@
 
   "USERLIST": {
 
-    "FirstName":"Prenume" ,
+    "FirstName":"Prenume " ,
     "LastName":"Nume" ,
     "Email": "Email",
     "Mobile":"Telefon" ,
@@ -105,7 +105,7 @@
   },
 
   "USERDETAILS": {
-    "USERDETAIL":"Detalii utilizator",
+    "USERDETAIL":"Detalii utilizator ",
     "FIRSTNAME": "Prenume",
     "LASTNAME": "Nume",
     "EMAIL": "Email",
@@ -118,7 +118,8 @@
     "EMAILSTAR":"*Trebuie sa fie de forma",
     "EMAILSTAR2":"adresa@msggroup.com" ,
     "MOBILESTAR": "*Trebuie sa fie un numar valid de ",
-    "MOBILESTAR2":" RO / DE"
+    "MOBILESTAR2":" RO / DE",
+    "REGION" : "Regiune"
 
 
 
@@ -225,6 +226,31 @@
     "EDIT_PERSONAL" : "Editati-va datele personale",
     "EDIT_PROJECT" : "Editati-va proiectele",
     "EDIT_SKILLS" : "Momentan ma pricep la ..."
-  }
+  },
 
+  "PLAYGROUND": {
+    "DEFAULT" : "STANDARD",
+    "DIFF" : " Diferente",
+    "EDIT" : "Schimbari:",
+    "INDUSTRY" : "Industrie",
+    "START" : "Data de inceput"
+  },
+
+  "PROJECT": {
+    "START": "Data de inceput a proiectului: ",
+    "END": "Data incheierii proiectului ",
+    "CLIENT_NAME": "numele clientului:",
+    "CLIENT_ADDRESS":"Adresa clientuui",
+    "DESCR": "Descriere:",
+    "DELETE" : "Stergeti"
+  },
+  "BUTTONS": {
+    "SAVE": "Salvati Schimbarile",
+    "ACCEPT" : "Acceptati Schimbarile",
+    "DISCARD" : "Renuntati la schimbari",
+    "DELETE_ENTRY" : "Stergeti Intrarea",
+    "REFRESH" : "Reimprospatati",
+    "EDIT" : "Editati",
+    "ADD" : "Adaugati proiect"
+  }
 }

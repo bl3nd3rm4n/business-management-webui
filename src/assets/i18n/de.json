@@ -1,0 +1,242 @@
+{
+  "HOME": {
+    "TITLE": "Einloggen",
+    "SELECT": "ändere Sprache"
+  },
+  "LOGIN": {
+    "USERNAME": "Benutzername",
+    "PASSWORD": "Paswort",
+    "CAPTCHA": "Schreibe Code",
+    "LOGBUTTON": "Anmelden",
+    "REGISTERBUTTON": "Anmelden",
+    "USERNOTFOUND": "Benutzer nicht gefunden",
+    "CREDENTIALSINVALID": "Ungülitige Daten",
+    "ACCBLOCKED": "Account is blocked !"
+  },
+  "REGISTER": {
+    "EMAIL": "Email Addresse",
+    "PASSWORD": "Passwort",
+    "REGISTERBUTTON": "Registrieren",
+    "ALREADYREGISTERED": "Benutzer shon registriert",
+    "INVALID": "ungültig"
+  },
+
+  "NOTIFICATION": {
+    "INVALID_CAPTCHA": "Ungultige Captcha",
+    "INVALID_CREDENTIALS": "Ungultige Daten",
+    "LOGIN_SUCCESS": "Anmeldung erfolgreich",
+    "REGISTER_SUCCESS": "Registrierung erfolgreich",
+    "USEREDITSUCCESS": "Benutzer erfolgreich geändert ",
+    "ASSIGNEDBUGS": "Benutzer kann nichtgeöscht werden weil er Bugs zuordnet hat",
+    "USERCREATESUCCESS": "Benutzer erfolgreich erstellt ",
+    "FIRSTNAMEREQUIRED": "*Vorname notwendig",
+    "LASTNAMEREQUIRED": "*Nachname notwendig",
+    "EMAILREQUIRED": "*Email notwendig",
+    "MOBILENUMBERREQUIRED": "*Handynummer notwendig",
+    "PASSWORDREQUIRED": "*Passwort notwendig",
+    "INVALIDFIRSTNAME": "*Unülitge Vorname",
+    "INVALIDLASTNAME": "*Unülitge Nachname",
+    "INVALIDEMAIL": "*Unülitge email",
+    "INVALIDMOBILENUMBER": "*Unülitge Handynummer",
+    "USERNAMEREQUIRED": "*Benutzername notwendig",
+    "CAPTCHAREQUIRED": "*Captcha notwendig",
+    "INTERROR": "Interne error",
+    "REQFAILED": "Ihre Anfrage könnte nicht erfullt werden",
+    "LOADFAILED":"Daten könnten nicht geladen werden.",
+    "BUGADDSUCC": "Bug hinzugefügt",
+    "BUGUPDATED": "Byg wurde aktualisiert.",
+    "BUGCLOSE": "Bug wurde geschlossen.",
+    "BUGSTATUS": "Bug status wurde aktualisiert",
+    "PERMCHANGED": "Erlaubniss aktualisiert"
+  },
+  "DASHBOARD": {
+    "JBUGS": "JBugs",
+    "USERLIST": "BenutzerListe",
+    "CREATEUSER": "Benutzer erstellen",
+    "ROLEPERMISSION": "Role Erlaubnisse",
+    "BUGS": "Bugs",
+    "PROFILEPAGE": "Profilseite ansehen",
+    "DASHBOARD": "Dashboard",
+    "LOGOUT": "AusLoggen",
+    "NOT": "Benachrichtigungen",
+    "SIGNEDINAS": "Hallo,  ",
+    "CREATEBUG": "Bug erstellt"
+  },
+  "USERLIST": {
+    "FirstName": "Vorname",
+    "LastName": "Nachname",
+    "Email": "Email",
+    "Mobile": "Handy",
+    "Username": "Benutzername",
+    "Status": "Status",
+    "ACTIVATED": "Aktiviert",
+    "DEACTIVATED": "Deactiviert",
+    "AGE" : "Alter",
+    "ROLE" : "Role"
+  },
+  "USERDETAILS": {
+    "USERDETAIL": "Benutzer Einzelheiten ",
+    "FIRSTNAME": "Vorname ",
+    "LASTNAME": "Lastname",
+    "EMAIL": "Email",
+    "MOBILENUMBER": "Handynummer",
+    "USERNAME": "Benutzername",
+    "PASSWORD": "Passwort",
+    "BLOCKED": "Eingesperrt",
+    "ROLES": "Rolen",
+    "EDIT": "Benutzer ändern",
+    "EMAILSTAR": "*Muss der Form sein",
+    "EMAILSTAR2": "address@msggroup.com",
+    "MOBILESTAR": "*Muss gültig sien",
+    "MOBILESTAR2": " RO / DE number",
+    "CONSULTING": " Cosnsulting Level",
+    "REGION" : "Region"
+  },
+  "CREATE": {
+    "ADD": "Füge einen neuen Benutzer ein",
+    "FIRSTNAME": "Vorname ",
+    "LASTNAME": "Nachname ",
+    "EMAIL": "Email",
+    "MOBILENUMBER": "Handynummer",
+    "PASSWORD": "Passwort",
+    "ROLES": "Rolen",
+    "ADDUSER": "Füge einen neuen Benutzer ein",
+    "MANDATORYFIELDS": "* Markierte Felder sind verpflichtend"
+  },
+  "ROLES1": {
+    "USER_MANAGEMENT": "Benutzer Management",
+    "BUG_MANAGEMENT": "Bug Management",
+    "BUG_CLOSE": "Bug einschliessen",
+    "PERMISSION_MANAGEMENT": "Erlaubnisse Management",
+    "BUG_EXPORT_PDF": "Bug Export Pdf"
+  },
+
+  "NOTIFICATIONCOMP": {
+
+    "Type": "Typ",
+    "Message": "Botshaft",
+    "Date": "Datum",
+    "Url": "Url"
+
+
+  },
+
+  "MSG": {
+    "WELCOME_NEW_USER" : "WILLKOMMEN_NEUEN_BENUTZER",
+    "USER_UPDATED" :"USER_AKTUALISIERT",
+    "USER_DELETED": "USER_GELOSHT" ,
+    "BUG_UPDATED":"BUG_AKTUALISIERT" ,
+    "BUG_STATUS_UPDATED": "BUG_STATUS_AKTUALISIERT",
+    "BUG_CLOSED": "BUG_EINGESCHLOSSEN",
+    "USER_DEACTIVATED": "USER_DEACTIVIERT"
+
+  },
+
+  "ROLES2": {
+
+    "ADM": "Administrator",
+    "PM": "Project manager",
+    "TM": "Test manager",
+    "DEV": "Entwickler",
+    "TEST": "Tester"
+
+  },
+
+
+  "BUGS": {
+    "FILTER": "Globales Filter",
+    "Title": "Titel",
+    "Description" :"Beschreibung" ,
+    "Version": "Version",
+    "Target Date":"Zieltermin" ,
+    "Status" :"Status",
+    "Fixed Version" :"Reparierte Version" ,
+    "Severity":"Schwere",
+    "Created Username": "Benutzername Erstellt",
+    "Assigned Username": "Benutzername zugewissen"
+
+
+  },
+
+
+
+
+  "STATUS":{
+
+    "NEW": "NEU",
+    "IN_PROGRESS": "IN_BEARBEITUNG",
+    "FIXED": "REPARIERT",
+    "CLOSED": "EINGESHLOSSEN",
+    "REJECTED": "ABGELEHNT",
+    "INFO_NEEDED": "INFO_GEBRAUCHT"
+
+  },
+  "BDETAILS": {
+    "DET": "Bug Einzelheiten",
+    "TITLE":"Titel",
+    "DESC": "Beschreibung",
+    "VERSION": "Version",
+    "TARGETDATE": "Zieltermin",
+    "STATUS": "Status",
+    "FXVERSION": "reparierte Version",
+    "SEVERITY": "Schwere",
+    "CREATEDBY": "Erstellt von",
+    "ASSIGNEDTO": "Zugewiesen an",
+    "BTNEDIT": "Bug bearbeiten",
+    "DESCREQUIRED": "*Beschreibung ist notwendig",
+    "DESCINVALID": "*Ungültige Beschreibung. Beshribung muss mindenstens 250 Buchstaben haben.",
+    "VERSIONREQUIRED": "*Version ist notwendig.",
+    "VERSIONINVALID": "*Ungultige Version. Version muss der Form '1.1.1'",
+    "TITLEREQUIRED": "*Titel ist notwendig",
+    "TITLEINVALID": "*Ungültiges Titel.",
+    "TITLESHORT": "*Ungültiges Titel. Titel muss mindenstens 3 Buchstaben haben",
+    "EXPEXCEL": "Exportiert zu Excel",
+    "EXPPDF": "Exportiert zu PDF",
+    "ALL": "ALLES",
+    "ALLTYPES": "Alle Typen",
+    "ATTACHMENT": "Attachment",
+    "CURRATTACHMENT": "Current Attachmnet:",
+    "FILEWARNING": "*Datei cann nict grosser als 250 MB sein.",
+    "DELATT": "Delete current attachment",
+
+    "ADDBUG": "füge neuen Bug ein",
+    "ADDBUGBUTTON": "Bug einfugen",
+    "MANDATORYFIELDS": "* Markierte Felder sinf verpflichtend"
+
+  },
+
+  "UTILS": {
+    "PERSONAL_DATA" : "Personale Info",
+    "PROJECT_DATA" : "Projecte Info",
+    "SKILLS_PANNEL" : "Fähigkeitsfenster",
+    "EDIT_PERSONAL" : "Ändere persönliche Infos",
+    "EDIT_PROJECT" : "Ändere Projecte",
+    "EDIT_SKILLS" : "Ich bin gut in  ..."
+  },
+
+  "PLAYGROUND": {
+    "DEFAULT" : "STANDARD",
+    "DIFF" : " Untersheidungen",
+    "EDIT" : "Anderungen:",
+    "INDUSTRY" : "Industrie",
+    "START" : "Anfangs Datum"
+},
+  "PROJECT": {
+    "START": "Anfangsdatum: ",
+    "END": "Enddatum ",
+    "CLIENT_NAME": "Kunden Name",
+    "CLIENT_ADDRESS": "Kunden Adresse",
+    "DESCR": "Beschreibund:",
+    "DELETE" : "Delete"
+  },
+  "BUTTONS": {
+    "SAVE": "Anderungen speicern",
+    "ACCEPT" : "Anderungen akzeptieren",
+    "DISCARD" : "Anderungen verwerfen",
+    "DELETE_ENTRY" : "Eintrag loschen",
+    "REFRESH" : "Aktualisierung",
+    "ADD" : "Project hinzufügen"
+
+  }
+
+}

@@ -75,8 +75,8 @@
     "ROLE" : "Role"
   },
   "USERDETAILS": {
-    "USERDETAIL": "User details",
-    "FIRSTNAME": "First name",
+    "USERDETAIL": "User details ",
+    "FIRSTNAME": "First name ",
     "LASTNAME": "Last name",
     "EMAIL": "Email",
     "MOBILENUMBER": "Mobile number",
@@ -88,7 +88,9 @@
     "EMAILSTAR": "*Must be of the form",
     "EMAILSTAR2": "address@msggroup.com",
     "MOBILESTAR": "*Must be a valid",
-    "MOBILESTAR2": " RO / DE number"
+    "MOBILESTAR2": " RO / DE number",
+    "CONSULTING": " Cosnsulting Level",
+    "REGION" : "Region"
   },
   "CREATE": {
     "ADD": "Add a new user",
@@ -210,5 +212,31 @@
   "EDIT_PERSONAL" : "Edit personale data",
   "EDIT_PROJECT" : "Edit Projects",
   "EDIT_SKILLS" : "Currently I am good at ..."
-}
+},
+  "PLAYGROUND": {
+    "DEFAULT" : "Default",
+    "DIFF" : " Differences",
+    "EDIT" : "Edit mode",
+    "INDUSTRY" : "Industry",
+    "START" : "Start Date"
+  },
+
+  "PROJECT": {
+    "START": "Project start date: ",
+    "END": "Project end date: ",
+    "CLIENT_NAME": "Client name:",
+    "CLIENT_ADDRESS":"Client address:",
+    "DESCR": "Description:",
+    "DELETE" : "Delete"
+  },
+  "BUTTONS": {
+    "SAVE": "Save edits",
+    "ACCEPT" : "Accept changes",
+    "DISCARD" : "Discard changes",
+    "DELETE_ENTRY" : "Delete Entry",
+    "REFRESH" : "Refresh",
+    "EDIT" : "Edit",
+    "ADD" : "Add project"
+
+  }
 }

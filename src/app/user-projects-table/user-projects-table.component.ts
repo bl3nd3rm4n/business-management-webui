@@ -8,6 +8,8 @@ import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dia
 import { UpdateStringDialogComponent } from '../update-string-dialog/update-string-dialog.component';
 import { UpdateConsultingLevelDialogComponent } from '../update-consulting-level-dialog/update-consulting-level-dialog.component';
 import { UpdateRegionDialogComponent } from '../update-region-dialog/update-region-dialog.component';
+import {TranslateService} from '@ngx-translate/core';
+import {log} from 'util';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -23,7 +25,7 @@ import { UpdateRegionDialogComponent } from '../update-region-dialog/update-regi
   ],
 })
 export class UserProjectsTableComponent implements OnInit {
-  
+
   @Input() diffMode: boolean;
   @Input() editMode: boolean;
   edits: ChangeModel[] = [];
@@ -37,6 +39,7 @@ export class UserProjectsTableComponent implements OnInit {
   updatedLastName: boolean = false;
   updatedConsultingLevel: boolean = false;
   updatedRegion: boolean = false;
+  industry: string = this.translateService.instant('PLAYGROUND.INDUSTRY');
 
   ngOnInit(): void {
     this.render();
@@ -107,16 +110,16 @@ export class UserProjectsTableComponent implements OnInit {
   projectExperienceEntries: ProjectExperienceEntry[];
   columnsToDisplay = [{
     value: 'consultingLevel',
-    displayName: 'Consulting Level'
+    displayName: 'USERDETAILS.CONSULTING'
   }, {
     value: 'industry',
-    displayName: 'Industry'
+    displayName: 'PLAYGROUND.INDUSTRY'
   }, {
     value: 'startDate',
-    displayName: 'Start Date'
+    displayName: 'PROJECT.START'
   }, {
     value: 'endDate',
-    displayName: 'End Date'
+    displayName: 'PROJECT.END'
   }];
   allColls = ['consultingLevel', 'industry', 'startDate', 'endDate'];
   expandedElement: ProjectExperienceEntry | null;
@@ -129,6 +132,7 @@ export class UserProjectsTableComponent implements OnInit {
     if (this.editMode) {
       colls.push({value: "delete", displayName: "Delete"})
     }
+
     return colls;
   }
 
@@ -138,12 +142,12 @@ export class UserProjectsTableComponent implements OnInit {
       colls.push(el);
     });
     if (this.editMode) {
-      colls.push("delete")
+      colls.push("delete");
     }
     return colls;
   }
 
-  constructor (private projectsService: ProjectsService, private dialog: MatDialog) {}
+  constructor(private projectsService: ProjectsService, private dialog: MatDialog, private translateService: TranslateService,){}
 
   openAddProjectDialog() {
     const dialogConfig = new MatDialogConfig();
@@ -173,7 +177,7 @@ export class UserProjectsTableComponent implements OnInit {
       changeType: changeType,
       args: {"id": id}
     }
-    
+
     this.edits.push(changeModel);
     console.log(this.edits);
   }
@@ -338,7 +342,7 @@ export class UserProjectsTableComponent implements OnInit {
     var resource = 'PROJECT';
     var startDate = data.startDate;
     var endDate = data.endDate;
-    
+
     if (!startDate || !endDate || !data.consultingLevel || !data.project || !data.description) {
       return;
     }
@@ -365,7 +369,7 @@ export class UserProjectsTableComponent implements OnInit {
       changeType: changeType,
       args: args
     }
-    
+
     this.edits.push(changeModel);
     console.log(this.edits);
   }

@@ -20,7 +20,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { Observable } from 'rxjs';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatNativeDateModule } from "@angular/material";
+import {MatNativeDateModule, MatRadioModule} from '@angular/material';
 import {
   MatCardModule,
   MatDialogModule,
@@ -126,7 +126,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MatRadioModule
   ],
   providers: [LoginService, MatNativeDateModule, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
   bootstrap: [AppComponent],

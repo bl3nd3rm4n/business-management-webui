@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { ProjectsService } from './user-projects-table.service';
-import { ProjectExperienceTransport, ProjectExperienceEntry, ChangeModel } from '../models/project-experience.model';
+import { ProjectExperienceTransport, ProjectExperienceEntry, ChangeModel, Skill } from '../models/project-experience.model';
 import { getLocaleEraNames } from '@angular/common';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
@@ -40,12 +40,14 @@ export class UserProjectsTableComponent implements OnInit {
   updatedConsultingLevel: boolean = false;
   updatedRegion: boolean = false;
   industry: string = this.translateService.instant('PLAYGROUND.INDUSTRY');
+  viewLoaded: boolean = false;
 
   ngOnInit(): void {
     this.render();
   }
 
   render() {
+    this.viewLoaded = false;
     this.projectsService.getFullUserSpecification("hans.futterman@test.com", this.diffMode).subscribe(resp => {
       this.email = resp.body.email;
       this.firstName = resp.body.firstName;
@@ -53,6 +55,7 @@ export class UserProjectsTableComponent implements OnInit {
       this.region = resp.body.region;
       this.consultingLevel = resp.body.consultingLevel;
       var metadata = resp.body.metadata;
+
       if (metadata.FIRST_NAME && metadata.FIRST_NAME === "UPDATE") {
         this.updatedFirstName = true;
       } else {
@@ -73,12 +76,21 @@ export class UserProjectsTableComponent implements OnInit {
       } else {
         this.updatedRegion = false;
       }
+
       let entries: ProjectExperienceEntry[] = [];
       resp.body.projectExperience.forEach(transport => {
         entries.push(this.mapProjectExperienceTransportToEntry(transport));
       });
       this.projectExperienceEntries = entries;
+
+      let skills: Skill[] = [];
+      resp.body.skills.forEach(s => {
+        skills.push(s);
+      })
+      this.skills = skills;
+      this.viewLoaded = true;
     });
+
     this.edits = [];
   }
 
@@ -108,6 +120,7 @@ export class UserProjectsTableComponent implements OnInit {
   }
 
   projectExperienceEntries: ProjectExperienceEntry[];
+  skills: Skill[];
   columnsToDisplay = [{
     value: 'consultingLevel',
     displayName: 'USERDETAILS.CONSULTING'

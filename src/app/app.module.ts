@@ -37,6 +37,7 @@ import {
   MatTableModule,
   MatSortModule
 } from "@angular/material";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from 'primeng/shared';
 import { CardModule } from 'primeng/card';
@@ -97,6 +98,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatSelectModule,
     MatNativeDateModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     MatGridListModule,
     MatTableModule,
     BrowserAnimationsModule,

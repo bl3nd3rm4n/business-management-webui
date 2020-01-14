@@ -1,91 +1,131 @@
-<mat-list role="list">
-  <mat-list-item role="listitem">
-    {{ "USERDETAILS.FIRSTNAME" | translate }}:
-    <span [class.updated]="diffMode === true && updatedFirstName === true">
-      {{firstName}}
-    </span>
-    &nbsp;&nbsp;
-    <button mat-flat-button color="accent" (click)="editFirstNameClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
-  </mat-list-item>
-  <mat-list-item role="listitem">
-    {{ "USERDETAILS.LASTNAME" | translate }}:
-    <span [class.updated]="diffMode === true && updatedLastName === true">
-      {{lastName}}
-    </span>
-    &nbsp;&nbsp;
-    <button mat-flat-button color="accent" (click)="editLastNameClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
-  </mat-list-item>
-  <mat-list-item role="listitem">
-    {{ "USERDETAILS.EMAIL" | translate }}:
-    <span>
-      {{email}}
-    </span>
-  </mat-list-item>
-  <mat-list-item role="listitem">
-    {{ "USERDETAILS.CONSULTING" | translate }}:
-    <span [class.updated]="diffMode === true && updatedConsultingLevel === true">
-      {{consultingLevel}}
-    </span>
-    &nbsp;&nbsp;
-    <button mat-flat-button color="accent" (click)="editConsultingLevelClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
-  </mat-list-item>
-  <mat-list-item role="listitem">
-    {{ "USERDETAILS.REGION" | translate }}:
-    <span [class.updated]="diffMode === true && updatedRegion === true">
-      {{region}}
-    </span>
-    &nbsp;&nbsp;
-    <button mat-flat-button color="accent" (click)="editRegionClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
-  </mat-list-item>
-</mat-list>
 
-<button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">{{"BUTTONS.ADD" | translate}}</button>
 
-<table mat-table
-       [dataSource]="projectExperienceEntries" multiTemplateDataRows
-       class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column.value}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell class="project-column-header" *matHeaderCellDef> {{column.displayName | translate}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
-  </ng-container>
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell class="project-column-header" *matHeaderCellDef> Delete </th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-flat-button color="warn" (click)="deleteHandler(element)">{{"BUTTONS.DELETE_ENTRY" | translate}}</button>
-    </td>
-  </ng-container>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let element" [attr.colspan]="getAllColumnsToDisplay().length">
-      <div class="example-element-detail"
-           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <div>
-          <h2> {{element.projectName}} </h2>
-          <strong> {{ "PROJECT.START" | translate }}  </strong> <span> {{element.projectStartDate}} </span> <br>
-          <strong> {{ "PROJECT.END" | translate }} </strong> <span> {{element.projectEndDate}} </span> <br>
-          <strong>{{ "PROJECT.CLIENT_NAME" | translate }}</strong> <span> {{element.clientName}} </span> <br>
-          <strong>{{ "PROJECT.CLIENT_ADDRESS" | translate }}</strong> <span> {{element.clientAddress}} </span> <br>
-          <strong> {{ "PROJECT.DESCR" | translate }}</strong> <p> {{element.description}} </p>
+
+      <div *ngIf="viewLoaded; else loading">
+        <div class="col-md-6">
+      
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              {{ "USERDETAILS.FIRSTNAME" | translate }}:
+              <span [class.updated]="diffMode === true && updatedFirstName === true">
+                {{firstName}}
+              </span>
+              &nbsp;&nbsp;
+              <button mat-flat-button color="accent" (click)="editFirstNameClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              {{ "USERDETAILS.LASTNAME" | translate }}:
+              <span [class.updated]="diffMode === true && updatedLastName === true">
+                {{lastName}}
+              </span>
+              &nbsp;&nbsp;
+              <button mat-flat-button color="accent" (click)="editLastNameClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              {{ "USERDETAILS.EMAIL" | translate }}:
+              <span>
+                {{email}}
+              </span>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              {{ "USERDETAILS.CONSULTING" | translate }}:
+              <span [class.updated]="diffMode === true && updatedConsultingLevel === true">
+                {{consultingLevel}}
+              </span>
+              &nbsp;&nbsp;
+              <button mat-flat-button color="accent" (click)="editConsultingLevelClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              {{ "USERDETAILS.REGION" | translate }}:
+              <span [class.updated]="diffMode === true && updatedRegion === true">
+                {{region}}
+              </span>
+              &nbsp;&nbsp;
+              <button mat-flat-button color="accent" (click)="editRegionClickHandler()" *ngIf="editMode">{{"BUTTONS.EDIT" | translate}}</button>
+            </mat-list-item>
+          </mat-list>
+        
+        
+        
+          <mat-divider></mat-divider>
+          <br>
+        
+        
+          <mat-chip-list>
+            <mat-chip #chipList *ngFor="let skill of skills" [removable]="true"
+            (removed)="removeOption(skill)">{{skill.name}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            </mat-chip-list>
+        
+        
         </div>
+        <br>
+        
+        <button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">{{"BUTTONS.ADD" | translate}}</button>
+        
+        <table mat-table
+               [dataSource]="projectExperienceEntries" multiTemplateDataRows
+               class="mat-elevation-z8">
+          <ng-container matColumnDef="{{column.value}}" *ngFor="let column of columnsToDisplay">
+            <th mat-header-cell class="project-column-header" *matHeaderCellDef> {{column.displayName | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
+          </ng-container>
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell class="project-column-header" *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-flat-button color="accent" (click)="deleteHandler(element)">{{"BUTTONS.DELETE_ENTRY" | translate}}</button>
+            </td>
+          </ng-container>
+        
+          <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+          <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="getAllColumnsToDisplay().length">
+              <div class="example-element-detail"
+                   [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <div>
+                  <h2> {{element.projectName}} </h2>
+                  <strong> {{ "PROJECT.START" | translate }}  </strong> <span> {{element.projectStartDate}} </span> <br>
+                  <strong> {{ "PROJECT.END" | translate }} </strong> <span> {{element.projectEndDate}} </span> <br>
+                  <strong>{{ "PROJECT.CLIENT_NAME" | translate }}</strong> <span> {{element.clientName}} </span> <br>
+                  <strong>{{ "PROJECT.CLIENT_ADDRESS" | translate }}</strong> <span> {{element.clientAddress}} </span> <br>
+                  <strong> {{ "PROJECT.DESCR" | translate }}</strong> <p> {{element.description}} </p>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="getAllColls()"></tr>
+          <tr mat-row *matRowDef="let element; columns: getAllColls();"
+              class="example-element-row"
+              [class.deleted]="diffMode === true && element.itemState === 'DELETED'"
+              [class.added]="diffMode === true && element.itemState === 'ADDED'"
+              [class.example-expanded-row]="expandedElement === element"
+              (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+          <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+        </table>
+        
+        <button mat-flat-button color="accent" (click)="render()">{{ "BUTTONS.REFRESH" | translate }}</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-flat-button color="accent" (click)="saveEditsHandler()" *ngIf="editMode">{{ "BUTTONS.SAVE" | translate }}</button>
+        <button mat-flat-button color="accent" (click)="acceptClickHandler()" *ngIf="diffMode">{{ "BUTTONS.ACCEPT" | translate }}</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-flat-button color="accent" (click)="discardClickHandler()" *ngIf="diffMode">{{ "BUTTONS.DISCARD" | translate }}</button>
+        
       </div>
-    </td>
-  </ng-container>
+      
+      <ng-template #loading>
+        <mat-spinner class="spinner"></mat-spinner>
+      </ng-template>
 
-  <tr mat-header-row *matHeaderRowDef="getAllColls()"></tr>
-  <tr mat-row *matRowDef="let element; columns: getAllColls();"
-      class="example-element-row"
-      [class.deleted]="diffMode === true && element.itemState === 'DELETED'"
-      [class.added]="diffMode === true && element.itemState === 'ADDED'"
-      [class.example-expanded-row]="expandedElement === element"
-      (click)="expandedElement = expandedElement === element ? null : element">
-    </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-</table>
 
-<button mat-flat-button color="accent" (click)="render()">{{ "BUTTONS.REFRESH" | translate }}</button>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button mat-flat-button color="accent" (click)="saveEditsHandler()" *ngIf="editMode">{{ "BUTTONS.SAVE" | translate }}</button>
-<button mat-flat-button color="accent" (click)="acceptClickHandler()" *ngIf="diffMode">{{ "BUTTONS.ACCEPT" | translate }}</button>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button mat-flat-button color="accent" (click)="discardClickHandler()" *ngIf="diffMode">{{ "BUTTONS.DISCARD" | translate }}</button>
+    </div>
+  </div>
+</div>
+
+

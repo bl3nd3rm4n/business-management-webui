@@ -3,7 +3,7 @@
 <mat-dialog-content [formGroup]="form">
 
     <mat-form-field>
-      <mat-label>Select consulting level</mat-label>
+      <mat-label>Select region</mat-label>
       <mat-select formControlName="region">
         <mat-option *ngFor="let region of regions" [value]="region">
           {{region.name}}

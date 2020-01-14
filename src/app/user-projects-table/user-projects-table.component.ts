@@ -195,10 +195,10 @@ export class UserProjectsTableComponent implements OnInit {
   }
 
   editFirstNameClickHandler() {
-    this.openUpdateStringDialog(this.updateFirstName);
+    this.openUpdateStringDialog(this.updateFirstName, "Update first name");
   }
 
-  openUpdateStringDialog(action) {
+  openUpdateStringDialog(action, title) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.data = {
@@ -235,7 +235,7 @@ export class UserProjectsTableComponent implements OnInit {
   }
 
   editLastNameClickHandler() {
-    this.openUpdateStringDialog(this.updateLastName);
+    this.openUpdateStringDialog(this.updateLastName, "Update last name");
   }
 
   updateLastName(data, ref) {

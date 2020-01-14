@@ -10,12 +10,14 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class UpdateStringDialogComponent implements OnInit {
   form: FormGroup;
   value: string;
+  title: string;
 
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<UpdateStringDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) {value}) { 
+    @Inject(MAT_DIALOG_DATA) {value, title}) { 
       this.value = value;
+      this.title = title;
       this.form = fb.group({
         value: [value, Validators.required]
       })

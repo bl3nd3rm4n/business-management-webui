@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { ProjectsService } from './user-projects-table.service';
-import { ProjectExperienceTransport, ProjectExperienceEntry, ChangeModel, Skill } from '../models/project-experience.model';
+import { ProjectExperienceTransport, ProjectExperienceEntry, ChangeModel, Skill, ItemState } from '../models/project-experience.model';
 import { getLocaleEraNames } from '@angular/common';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
@@ -10,6 +10,7 @@ import { UpdateConsultingLevelDialogComponent } from '../update-consulting-level
 import { UpdateRegionDialogComponent } from '../update-region-dialog/update-region-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {log} from 'util';
+import { AddSkillDialogComponent } from '../add-skill-dialog/add-skill-dialog.component';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -384,6 +385,70 @@ export class UserProjectsTableComponent implements OnInit {
     }
 
     this.edits.push(changeModel);
-    console.log(this.edits);
+  }
+
+  removeOption(skill) {
+    if (skill.itemState === "PATCHED") {
+      this.edits = this.edits.filter(e => !(e.resource === "SKILL" && e.args.tmp === skill.id));
+      this.skills = this.skills.filter(s => s.id !== skill.id);
+      return;
+    }
+    var resource = "SKILL";
+    var changeType = "DELETE";
+    this.skills = this.skills.filter(s => s.id !== skill.id);
+    var changeModel: ChangeModel = {
+      resource: resource,
+      changeType: changeType,
+      args: {"id": skill.id}
+    }
+
+    this.edits.push(changeModel);
+  }
+
+  addSkillClickHandler() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      id: 1
+    }
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(AddSkillDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => this.addSkill(data)
+    );
+  }
+
+  addSkill(data) {
+    if (!data) {
+      return;
+    }
+    var changeType = 'ADD';
+    var resource = 'SKILL';
+
+    var args = {
+      id: data.skill.id,
+      tmp: null
+    }
+
+    this.projectsService.patchSkill(args).subscribe(r => {
+      var x: Skill[] = [];
+      this.skills.forEach(el => {
+        x.push(el)
+      });
+      args.tmp = r.id;
+      x.push(r);
+      this.skills = x;
+      var changeModel: ChangeModel = {
+        resource: resource,
+        changeType: changeType,
+        args: args
+      }
+
+      this.edits.push(changeModel);
+    });
   }
 }

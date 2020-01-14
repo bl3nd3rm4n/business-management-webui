@@ -32,6 +32,7 @@ export interface Skill {
     id: string;
     name: string;
     area: string;
+    itemState: ItemState;
 }
 
 export interface FullUserSpecification {
@@ -55,5 +56,6 @@ export enum ItemState {
     DELETED,
     ADDED,
     UPDATED,
-    PERSISTED
+    PERSISTED,
+    PATCHED
 }

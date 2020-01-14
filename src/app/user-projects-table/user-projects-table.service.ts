@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProjectExperienceTransport, FullUserSpecification, ChangeModel } from '../models/project-experience.model';
+import { ProjectExperienceTransport, FullUserSpecification, ChangeModel, Skill } from '../models/project-experience.model';
 
 @Injectable()
 export class ProjectsService {
@@ -36,6 +36,12 @@ export class ProjectsService {
         let url = 'http://localhost:6543/regions';
         return this.http.get<Object[]>(url, { observe: 'response' });
     }
+    
+    getAllSkills(): Observable<HttpResponse<Object[]>> {
+        let url = 'http://localhost:6543/skills';
+        return this.http.get<Object[]>(url, { observe: 'response' });
+    }
+
 
     saveEdits(changeModels: ChangeModel[], email: String) {
         let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
@@ -55,5 +61,10 @@ export class ProjectsService {
     discardChanges(email) {
       let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
       return this.http.post(url, []);
+    }
+
+    patchSkill(map): Observable<Skill> {
+        let url ='http://localhost:6543/rpc/patch-skill';
+        return this.http.post<Skill>(url, map);
     }
 }

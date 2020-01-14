@@ -53,12 +53,20 @@
         
           <mat-divider></mat-divider>
           <br>
-        
+          <div *ngIf="editMode">
+            <button mat-flat-button color="accent" (click)="addSkillClickHandler()" *ngIf="editMode">Add skill</button>
+            <br>
+            <br>
+          </div>
+
         
           <mat-chip-list>
-            <mat-chip #chipList *ngFor="let skill of skills" [removable]="true"
+            <mat-chip #chipList
+             [class.deleted]="diffMode === true && skill.itemState === 'DELETED'"
+             [class.added]="diffMode === true && skill.itemState === 'ADDED'"
+             *ngFor="let skill of skills" [removable]="editMode === true"
             (removed)="removeOption(skill)">{{skill.name}}
-            <mat-icon matChipRemove>cancel</mat-icon>
+            <mat-icon *ngIf="editMode === true" matChipRemove>cancel</mat-icon>
             </mat-chip>
             </mat-chip-list>
         

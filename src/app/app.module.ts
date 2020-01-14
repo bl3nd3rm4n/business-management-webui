@@ -61,6 +61,7 @@ import { AddProjectDialogComponent } from './add-project-dialog/add-project-dial
 import { UpdateStringDialogComponent } from './update-string-dialog/update-string-dialog.component';
 import { UpdateConsultingLevelDialogComponent } from './update-consulting-level-dialog/update-consulting-level-dialog.component';
 import { UpdateRegionDialogComponent } from './update-region-dialog/update-region-dialog.component';
+import { AddSkillDialogComponent } from './add-skill-dialog/add-skill-dialog.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -87,7 +88,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AddProjectDialogComponent,
     UpdateStringDialogComponent,
     UpdateConsultingLevelDialogComponent,
-    UpdateRegionDialogComponent
+    UpdateRegionDialogComponent,
+    AddSkillDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -133,6 +135,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [LoginService, MatNativeDateModule, DatePipe, AuthGuardService, RegisterService, RegistrationRequestsService],
   bootstrap: [AppComponent],
-  entryComponents: [AddProjectDialogComponent, UpdateStringDialogComponent, UpdateConsultingLevelDialogComponent, UpdateRegionDialogComponent]
+  entryComponents: [
+    AddProjectDialogComponent,
+    UpdateStringDialogComponent,
+    UpdateConsultingLevelDialogComponent,
+    UpdateRegionDialogComponent,
+    AddSkillDialogComponent
+  ]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
 import { UpdateStringDialogComponent } from '../update-string-dialog/update-string-dialog.component';
 import { UpdateConsultingLevelDialogComponent } from '../update-consulting-level-dialog/update-consulting-level-dialog.component';
+import { UpdateRegionDialogComponent } from '../update-region-dialog/update-region-dialog.component';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -35,6 +36,7 @@ export class UserProjectsTableComponent implements OnInit {
   updatedFirstName: boolean = false;
   updatedLastName: boolean = false;
   updatedConsultingLevel: boolean = false;
+  updatedRegion: boolean = false;
 
   ngOnInit(): void {
     this.render();
@@ -62,6 +64,11 @@ export class UserProjectsTableComponent implements OnInit {
         this.updatedConsultingLevel = true;
       } else {
         this.updatedConsultingLevel = false;
+      }
+      if (metadata.REGION === "UPDATE") {
+        this.updatedRegion = true;
+      } else {
+        this.updatedRegion = false;
       }
       let entries: ProjectExperienceEntry[] = [];
       resp.body.projectExperience.forEach(transport => {
@@ -284,6 +291,43 @@ export class UserProjectsTableComponent implements OnInit {
     }
     ref.edits.push(changeModel);
   }
+
+  editRegionClickHandler() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      id: 1,
+      title: ""
+    }
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(UpdateRegionDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => this.updateRegion(data, this)
+    );
+  }
+
+  updateRegion(data, ref) {
+    if (!data || !data.region) {
+      return;
+    }
+    ref.region = data.region.name;
+    var changeType = "UPDATE";
+    var resource = "REGION";
+    var args = {
+      regionId: data.region.id
+    };
+    var changeModel: ChangeModel = {
+      changeType: changeType,
+      resource: resource,
+      args: args
+    }
+    ref.edits.push(changeModel);
+  }
+
 
   addProject(data) {
     if (!data) {

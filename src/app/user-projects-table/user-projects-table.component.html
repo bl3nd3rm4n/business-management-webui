@@ -29,7 +29,14 @@
     &nbsp;&nbsp;
     <button mat-flat-button color="accent" (click)="editConsultingLevelClickHandler()" *ngIf="editMode">Edit</button>
   </mat-list-item>
-  <mat-list-item role="listitem">Region: &nbsp;&nbsp;<span>{{region}}</span></mat-list-item>
+  <mat-list-item role="listitem">
+    Region: &nbsp;&nbsp;
+    <span [class.updated]="diffMode === true && updatedRegion === true">
+      {{region}}
+    </span>
+    &nbsp;&nbsp;
+    <button mat-flat-button color="accent" (click)="editRegionClickHandler()" *ngIf="editMode">Edit</button>
+  </mat-list-item>
 </mat-list>
 
 <button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">Add project</button>

@@ -32,6 +32,11 @@ export class ProjectsService {
         return this.http.get<Object[]>(url, { observe: 'response' });
     }
 
+    getAllRegions(): Observable<HttpResponse<Object[]>> {
+        let url = 'http://localhost:6543/regions';
+        return this.http.get<Object[]>(url, { observe: 'response' });
+    }
+
     saveEdits(changeModels: ChangeModel[], email: String) {
         let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
         return this.http.post(url, changeModels);

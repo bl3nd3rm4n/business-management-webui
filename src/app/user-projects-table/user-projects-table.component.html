@@ -75,7 +75,9 @@
         <br>
         
         <button mat-flat-button color="accent" (click)="addClickHandler()" *ngIf="editMode">{{"BUTTONS.ADD" | translate}}</button>
-        
+        <br *ngIf="editMode">
+        <br *ngIf="editMode">
+
         <table mat-table
                [dataSource]="projectExperienceEntries" multiTemplateDataRows
                class="mat-elevation-z8">
@@ -118,11 +120,15 @@
           <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
         </table>
         
+
+        <br>
         <button mat-flat-button color="accent" (click)="render()">{{ "BUTTONS.REFRESH" | translate }}</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-flat-button color="accent" (click)="enterEditMode()" *ngIf="!editMode && !diffMode">Edit</button>
         <button mat-flat-button color="accent" (click)="saveEditsHandler()" *ngIf="editMode">{{ "BUTTONS.SAVE" | translate }}</button>
         <button mat-flat-button color="accent" (click)="acceptClickHandler()" *ngIf="diffMode">{{ "BUTTONS.ACCEPT" | translate }}</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-flat-button color="accent" (click)="discardEditsHandler()" *ngIf="editMode">{{ "BUTTONS.DISCARD" | translate }}</button>
         <button mat-flat-button color="accent" (click)="discardClickHandler()" *ngIf="diffMode">{{ "BUTTONS.DISCARD" | translate }}</button>
         
       </div>

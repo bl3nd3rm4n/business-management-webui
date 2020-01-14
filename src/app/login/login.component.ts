@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
         this.toasterService.success(
           this.translateService.instant('NOTIFICATION.LOGIN_SUCCESS')
         );
+        localStorage.setItem('email', this.loginCreds.email);
         this.setToken(JSON.parse(response).token);
         this.authservice.loggedInSetter();
         this.router.navigate(['/dashboard']);

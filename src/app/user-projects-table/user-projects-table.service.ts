@@ -3,7 +3,9 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProjectExperienceTransport, FullUserSpecification, ChangeModel, Skill } from '../models/project-experience.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })  
 export class ProjectsService {
 
     constructor(private http: HttpClient) {
@@ -12,7 +14,9 @@ export class ProjectsService {
 
     getFullUserSpecification(email: string, diff: boolean): Observable<HttpResponse<FullUserSpecification>> {
         // http://localhost:6543/users/hans.futterman@test.com/projects
-
+        if (!email) {
+            email = localStorage.getItem('email');
+        }
         let baseUrl = 'http://localhost:6543/users/';
         if (diff) {
             return this
@@ -44,6 +48,9 @@ export class ProjectsService {
 
 
     saveEdits(changeModels: ChangeModel[], email: String) {
+        if (!email) {
+            email = localStorage.getItem('email');
+        }
         let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
         return this.http.post(url, changeModels);
     }
@@ -54,13 +61,19 @@ export class ProjectsService {
     }
 
     acceptChanges(email) {
-      let url = 'http://localhost:6543/users/' + email + '/accept';
-      return this.http.get(url);
+        if (!email) {
+            email = localStorage.getItem('email');
+        }
+        let url = 'http://localhost:6543/users/' + email + '/accept';
+        return this.http.post(url, null);
     }
 
     discardChanges(email) {
-      let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
-      return this.http.post(url, []);
+        if (!email) {
+            email = localStorage.getItem('email');
+        }
+        let url = 'http://localhost:6543/users/' + email + '/create-pending-changes';
+        return this.http.post(url, []);
     }
 
     patchSkill(map): Observable<Skill> {

@@ -29,6 +29,8 @@ export class UserProjectsTableComponent implements OnInit {
 
   @Input() diffMode: boolean;
   @Input() editMode: boolean;
+  @Input() userEmail: string = null;
+
   edits: ChangeModel[] = [];
   email: string = "";
   firstName: string = "";
@@ -49,7 +51,7 @@ export class UserProjectsTableComponent implements OnInit {
 
   render() {
     this.viewLoaded = false;
-    this.projectsService.getFullUserSpecification("hans.futterman@test.com", this.diffMode).subscribe(resp => {
+    this.projectsService.getFullUserSpecification(this.userEmail, this.diffMode).subscribe(resp => {
       this.email = resp.body.email;
       this.firstName = resp.body.firstName;
       this.lastName = resp.body.lastName
@@ -197,7 +199,15 @@ export class UserProjectsTableComponent implements OnInit {
   }
 
   saveEditsHandler() {
-    this.projectsService.saveEdits(this.edits, 'hans.futterman@test.com').subscribe();
+    this.projectsService.saveEdits(this.edits, this.userEmail).subscribe();
+    this.editMode = false;
+    this.render();
+  }
+
+  discardEditsHandler() {
+    this.edits = [];
+    this.editMode = false;
+    this.render();
   }
 
   addClickHandler() {
@@ -205,11 +215,13 @@ export class UserProjectsTableComponent implements OnInit {
   }
 
   acceptClickHandler() {
-    this.projectsService.acceptChanges('hans.futterman@test.com').subscribe();
+    var ref = this;
+    this.projectsService.acceptChanges(this.userEmail).subscribe(s => ref.render());
   }
 
   discardClickHandler() {
-    this.projectsService.discardChanges('hans.futterman@test.com').subscribe();
+    var ref = this;
+    this.projectsService.discardChanges(this.userEmail).subscribe(s => ref.render());
   }
 
   editFirstNameClickHandler() {
@@ -450,5 +462,9 @@ export class UserProjectsTableComponent implements OnInit {
 
       this.edits.push(changeModel);
     });
+  }
+
+  enterEditMode() {
+    this.editMode = true;
   }
 }

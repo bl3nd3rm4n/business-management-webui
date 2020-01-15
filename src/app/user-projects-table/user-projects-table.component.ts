@@ -11,6 +11,8 @@ import { UpdateRegionDialogComponent } from '../update-region-dialog/update-regi
 import {TranslateService} from '@ngx-translate/core';
 import {log} from 'util';
 import { AddSkillDialogComponent } from '../add-skill-dialog/add-skill-dialog.component';
+import { ChartOptions, ChartType } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-user-projects-table',
@@ -91,6 +93,7 @@ export class UserProjectsTableComponent implements OnInit {
         skills.push(s);
       })
       this.skills = skills;
+      this.renderPieChart();
       this.viewLoaded = true;
     });
 
@@ -403,11 +406,13 @@ export class UserProjectsTableComponent implements OnInit {
     if (skill.itemState === "PATCHED") {
       this.edits = this.edits.filter(e => !(e.resource === "SKILL" && e.args.tmp === skill.id));
       this.skills = this.skills.filter(s => s.id !== skill.id);
+      this.renderPieChart();
       return;
     }
     var resource = "SKILL";
     var changeType = "DELETE";
     this.skills = this.skills.filter(s => s.id !== skill.id);
+    this.renderPieChart();
     var changeModel: ChangeModel = {
       resource: resource,
       changeType: changeType,
@@ -454,6 +459,7 @@ export class UserProjectsTableComponent implements OnInit {
       args.tmp = r.id;
       x.push(r);
       this.skills = x;
+      this.renderPieChart();
       var changeModel: ChangeModel = {
         resource: resource,
         changeType: changeType,
@@ -466,5 +472,53 @@ export class UserProjectsTableComponent implements OnInit {
 
   enterEditMode() {
     this.editMode = true;
+  }
+
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+      position: 'bottom',
+    },
+    aspectRatio: 1.3,
+    title: {display: false, position: 'top', text: 'Skill distribution', fontSize: 30},
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
+  };
+  public pieChartLabels: Label[] = [];
+  public pieChartData: number[] = [];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartColors = [
+    {
+      backgroundColor: ['rgba(35, 203, 167, 1)',
+      'rgba(246, 71, 71, 1)',
+      'rgba(0, 181, 204, 1)',
+      'rgba(36, 37, 42, 1)',
+      'rgba(104, 195, 163, 1)',
+      'rgba(242, 120, 75, 1)',
+      'rgba(191, 85, 236, 1)',
+      'rgba(200, 247, 197, 1)',
+      'rgba(68, 108, 179, 1)',
+      'rgba(250, 216, 89, 1)'
+    ],
+    },
+  ];
+  renderPieChart() {
+    var skills = this.skills;
+    var grouped = skills.reduce((r, a) => {
+      r[a.area] = [...r[a.area] || [], a];
+      return r;
+    }, {});
+    var labels = Object.keys(grouped);
+    var data = Object.values<Skill[]>(grouped).map(x => x.length);
+    this.pieChartLabels = labels;
+    this.pieChartData = data;
   }
 }

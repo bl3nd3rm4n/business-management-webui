@@ -62,6 +62,7 @@ import { UpdateStringDialogComponent } from './update-string-dialog/update-strin
 import { UpdateConsultingLevelDialogComponent } from './update-consulting-level-dialog/update-consulting-level-dialog.component';
 import { UpdateRegionDialogComponent } from './update-region-dialog/update-region-dialog.component';
 import { AddSkillDialogComponent } from './add-skill-dialog/add-skill-dialog.component';
+import { ProfileEditsTableComponent } from './profile-edits-table/profile-edits-table.component';
 import { DiffPageComponent } from './diff-page/diff-page.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -91,6 +92,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UpdateConsultingLevelDialogComponent,
     UpdateRegionDialogComponent,
     AddSkillDialogComponent,
+    ProfileEditsTableComponent
     DiffPageComponent
   ],
   imports: [

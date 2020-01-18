@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-
 import { BlockedUsersTableService } from "../service/blocked-users-table/blocked-users.service";
 
 @Component({

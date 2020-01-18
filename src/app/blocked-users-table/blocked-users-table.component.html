@@ -1,7 +1,7 @@
 <ng-template [ngIf]="blockedUsers.length" [ngIfElse]="noBlcokedUsers">
   <table
     mat-table
-    class="registration-req-table mat-elevation-z8"
+    class="blocked-users-table mat-elevation-z8"
     [dataSource]="blockedUsers"
   >
     <ng-container matColumnDef="id">

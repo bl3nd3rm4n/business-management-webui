@@ -41,8 +41,7 @@ export const routes: Routes = [
     component: PlaygroundComponent
   },
   {
-    path: "diff/:email",
-    pathMatch: "full",
+    path: "diff",
     component: DiffPageComponent
   }
 ];

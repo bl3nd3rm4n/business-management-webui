@@ -92,7 +92,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UpdateConsultingLevelDialogComponent,
     UpdateRegionDialogComponent,
     AddSkillDialogComponent,
-    ProfileEditsTableComponent
+    ProfileEditsTableComponent,
     DiffPageComponent
   ],
   imports: [

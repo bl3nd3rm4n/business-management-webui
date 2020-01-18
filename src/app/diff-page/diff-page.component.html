@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="diff-container">
+                <h3>Pending changes for {{email}}</h3>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <app-user-projects-table [userEmail]="email" [diffMode]="true" [editMode] = "false"></app-user-projects-table>
+        </div>
+    </div>
+</div>

@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
       rows: 2,
       cols: 4,
       color: "lightyellow",
-      link: ""
+      link: "/diff/maris.mihaibogdan@gmail.com"
     }
   ];
   isSupervisor: boolean;

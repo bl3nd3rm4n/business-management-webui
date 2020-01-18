@@ -62,6 +62,7 @@ import { UpdateStringDialogComponent } from './update-string-dialog/update-strin
 import { UpdateConsultingLevelDialogComponent } from './update-consulting-level-dialog/update-consulting-level-dialog.component';
 import { UpdateRegionDialogComponent } from './update-region-dialog/update-region-dialog.component';
 import { AddSkillDialogComponent } from './add-skill-dialog/add-skill-dialog.component';
+import { DiffPageComponent } from './diff-page/diff-page.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -89,7 +90,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UpdateStringDialogComponent,
     UpdateConsultingLevelDialogComponent,
     UpdateRegionDialogComponent,
-    AddSkillDialogComponent
+    AddSkillDialogComponent,
+    DiffPageComponent
   ],
   imports: [
     BrowserModule,

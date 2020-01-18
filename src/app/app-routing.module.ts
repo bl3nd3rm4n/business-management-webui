@@ -8,6 +8,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { RegisterComponent } from "./register/register.component";
 import { PlaygroundComponent } from "./playground/playground.component";
 import { PersonalInfoComponent } from "./personal-info/personal-info.component";
+import { DiffPageComponent } from "./diff-page/diff-page.component";
 
 export const routes: Routes = [
   {
@@ -38,6 +39,11 @@ export const routes: Routes = [
   {
     path: "playground",
     component: PlaygroundComponent
+  },
+  {
+    path: "diff/:email",
+    pathMatch: "full",
+    component: DiffPageComponent
   }
 ];
 

@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>Update region</h2>
+<h2 mat-dialog-title>{{"REGION.UPDATE" |  translate}}</h2>
 
 <mat-dialog-content [formGroup]="form">
 
     <mat-form-field>
-      <mat-label>Select region</mat-label>
+      <mat-label>{{"REGION.SELECT" | translate}}</mat-label>
       <mat-select formControlName="region">
         <mat-option *ngFor="let region of regions" [value]="region">
           {{region.name}}
@@ -13,6 +13,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <button class="mat-raised-button"(click)="close()">{{"SKILL.CLOSE" | translate}}</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">{{"SKILL.SAVE" | translate}}</button>
 </mat-dialog-actions>

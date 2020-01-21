@@ -236,7 +236,33 @@
     "DELETE_ENTRY" : "Delete Entry",
     "REFRESH" : "Refresh",
     "EDIT" : "Edit",
-    "ADD" : "Add project"
+    "ADD" : "Add project",
+    "CLOSE" : "Close"
 
+  },
+
+ "PROJECT_DIALOG": {
+   "SELECT_PROJECT" : "Select project",
+   "SELECT_CONSULTING_LEVEL" : "Select consulting level",
+   "STARTDATE" :"Start date",
+   "ENDDATE" : "End date",
+   "ADD" : "Add project experience",
+   "Description" : "Description"},
+
+  "SKILL" : {
+    "ADD": "Add skill",
+    "SELECT": "Select Skill",
+    "CLOSE" : "Close",
+    "SAVE" : "Save"
+  },
+
+  "CONSULTING" : {
+    "UPDATE" : "Update consulting level",
+    "SELECT" : "Select Consulting Level"
+
+  },
+  "REGION" : {
+    "UPDATE" : "Update region",
+    "SELECT" : "Select region"
   }
 }

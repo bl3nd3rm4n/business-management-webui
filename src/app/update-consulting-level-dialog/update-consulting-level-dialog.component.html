@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>Update consulting level</h2>
+<h2 mat-dialog-title>{{"CONSULTING.UPDATE" | translate}}</h2>
 
 <mat-dialog-content [formGroup]="form">
 
     <mat-form-field>
-      <mat-label>Select consulting level</mat-label>
+      <mat-label>{{"CONSULTING.SELECT" | translate}}</mat-label>
       <mat-select formControlName="consultingLevel">
         <mat-option *ngFor="let level of consultingLevels" [value]="level">
           {{level.name}}
@@ -13,6 +13,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <button class="mat-raised-button"(click)="close()">{{"SKILL.CLOSE"| translate}}</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">{{"SKILL.SAVE"| translate}}</button>
 </mat-dialog-actions>

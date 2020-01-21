@@ -235,8 +235,34 @@
     "DISCARD" : "Anderungen verwerfen",
     "DELETE_ENTRY" : "Eintrag loschen",
     "REFRESH" : "Aktualisierung",
-    "ADD" : "Project hinzufügen"
+    "ADD" : "Project hinzufügen",
+    "CLOSE" : "Inchideti"
+
+  },
+
+  "PROJECT_DIALOG": {
+    "SELECT_PROJECT" : "Project auswahlen",
+    "SELECT_CONSULTING_LEVEL" : "Consulting level auswahlen",
+    "STARTDATE" :"Anfangs Datum",
+    "ENDDATE" : "Enddatum",
+    "ADD" : "Projekt erfahrum=ng einfugen",
+    "Description" : "Beschreibung"
+  },
+
+  "SKILL" : {
+    "ADD": "Skill hinzufugen",
+    "SELECT": "Skill auswahlen",
+    "CLOSE" : "Schiessen",
+    "SAVE" : "Speicher"
+  },
+  "CONSULTING" : {
+    "UPDATE" : "Consulting Level aktualisieren",
+    "SELECT" : "Consulting Level wahlen"
+
+  },
+  "REGION" : {
+    "UPDATE" : "Region aktualisieren",
+    "SELECT" : "Region Level wahlen"
 
   }
-
 }

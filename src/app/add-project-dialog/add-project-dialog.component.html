@@ -1,13 +1,13 @@
-<h2 mat-dialog-title>Add project experience</h2>
+<h2 mat-dialog-title>{{'PROJECT_DIALOG.ADD' |translate}}</h2>
 
 <mat-dialog-content [formGroup]="form">
-  
+
     <mat-form-field>
-        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        <textarea matInput placeholder="{{'PROJECT_DIALOG.Description'|translate}}" formControlName="description"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Select project</mat-label>
+      <mat-label>{{"PROJECT_DIALOG.SELECT_PROJECT" | translate}}</mat-label>
       <mat-select formControlName="project">
         <mat-option *ngFor="let project of projects" [value]="project.id">
           {{project.name}}
@@ -16,7 +16,7 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Select consulting level</mat-label>
+      <mat-label>{{"PROJECT_DIALOG.SELECT_CONSULTING_LEVEL"| translate}}</mat-label>
       <mat-select formControlName="consultingLevel">
         <mat-option *ngFor="let level of consultingLevels" [value]="level.id">
           {{level.name}}
@@ -25,19 +25,19 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Start date" formControlName="startDate">
+      <input matInput [matDatepicker]="picker" placeholder="{{'PROJECT_DIALOG.STARTDATE' |translate}}" formControlName="startDate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput [matDatepicker]="pickerEnd" placeholder="End date" formControlName="endDate">
+      <input matInput [matDatepicker]="pickerEnd" placeholder="{{'PROJECT_DIALOG.ENDDATE' |translate}}" formControlName="endDate">
       <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
       <mat-datepicker #pickerEnd></mat-datepicker>
     </mat-form-field>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <button class="mat-raised-button"(click)="close()">{{'BUTTONS.CLOSE' |translate}}</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">{{'BUTTONS.SAVE' |translate}}</button>
 </mat-dialog-actions>

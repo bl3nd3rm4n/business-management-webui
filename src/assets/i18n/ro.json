@@ -251,6 +251,38 @@
     "DELETE_ENTRY" : "Stergeti Intrarea",
     "REFRESH" : "Reimprospatati",
     "EDIT" : "Editati",
-    "ADD" : "Adaugati proiect"
+    "ADD" : "Adaugati proiect",
+    "CLOSE" : "Inchideti"
+
+  },
+
+  "PROJECT_DIALOG": {
+    "SELECT_PROJECT" : "Selectati un proiect",
+    "SELECT_CONSULTING_LEVEL" : "Selectati nivel de consultanta",
+    "STARTDATE" :"Data de inceput",
+    "ENDDATE" : "Data de sfarsit",
+    "ADD" : "Adaugati experienta pe proiect",
+    "Description" : "descriere"
+
+
+
+  },
+  "SKILL" : {
+    "ADD": "Adaugati o aptitudine",
+    "SELECT": "Alegeti o aptitudine",
+    "CLOSE" : "Inchideti",
+    "SAVE" : "Salvati"
+  },
+
+  "CONSULTING" : {
+    "UPDATE" : "Actualizati Nivelul de Consultanta",
+    "SELECT" : "Selectati Nivelul de Consultanta"
+
+  },
+  "REGION" : {
+    "UPDATE" : "Actualizati regiunea",
+    "SELECT" : "Selectati regiunea"
+
   }
+
 }

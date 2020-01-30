@@ -252,5 +252,12 @@
     "REFRESH" : "Reimprospatati",
     "EDIT" : "Editati",
     "ADD" : "Adaugati proiect"
+  },
+
+  "SUPER_TABLE": {
+    "NAME" : "Nume",
+    "APPROVE": "Aproba" ,
+    "DENY" : "Refuza",
+    "VIEW" : "Vedeti schimbarile"
   }
 }

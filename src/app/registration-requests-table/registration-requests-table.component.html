@@ -12,7 +12,7 @@
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>{{"SUPER_TABLE.NAME"| translate}}</th>
       <td mat-cell *matCellDef="let regReq">
         {{ regReq.lastName }} {{ regReq.firstName }}
       </td>
@@ -24,21 +24,22 @@
     </ng-container>
 
     <ng-container matColumnDef="approvedeny">
-      <th mat-header-cell *matHeaderCellDef>Approve/Deny</th>
+      <th mat-header-cell *matHeaderCellDef>{{"SUPER_TABLE.APPROVE"| translate}}/ {{"SUPER_TABLE.DENY"| translate}}
+       </th>
       <td mat-cell *matCellDef="let regReq">
         <button
           mat-raised-button
           color="primary"
           (click)="approveRegistrationRequest(regReq.hashedEmail)"
         >
-          Approve
+          {{"SUPER_TABLE.APPROVE"| translate}}
         </button>
         <button
           mat-raised-button
           color="warn"
           (click)="rejectRegistrationRequest(regReq.hashedEmail)"
         >
-          Reject
+          {{"SUPER_TABLE.DENY"| translate}}
         </button>
       </td>
     </ng-container>

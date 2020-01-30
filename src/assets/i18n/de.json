@@ -237,6 +237,14 @@
     "REFRESH" : "Aktualisierung",
     "ADD" : "Project hinzufügen"
 
+  },
+
+
+  "SUPER_TABLE": {
+    "NAME" : "Nume",
+    "APPROVE": "Genehmigen" ,
+    "DENY" : "Verweigern",
+    "VIEW" : "Anderungen sehen"
   }
 
 }

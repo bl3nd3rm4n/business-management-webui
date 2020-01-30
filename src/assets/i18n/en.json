@@ -238,5 +238,12 @@
     "EDIT" : "Edit",
     "ADD" : "Add project"
 
+  },
+
+  "SUPER_TABLE": {
+    "NAME" : "Name",
+    "APPROVE": "Approve" ,
+    "DENY" : "Deny",
+    "VIEW" : "View chages"
   }
 }

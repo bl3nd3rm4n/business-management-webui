@@ -12,7 +12,7 @@
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>{{"SUPER_TABLE.NAME"| translate}}</th>
       <td mat-cell *matCellDef="let profileEdit">
         {{ profileEdit.lastName }} {{ profileEdit.firstName }}
       </td>
@@ -26,14 +26,14 @@
     </ng-container>
 
     <ng-container matColumnDef="view">
-      <th mat-header-cell *matHeaderCellDef>Approve/Deny</th>
+      <th mat-header-cell *matHeaderCellDef>{{"SUPER_TABLE.APPROVE"| translate}}/{{"SUPER_TABLE.DENY"| translate}}</th>
       <td mat-cell *matCellDef="let profileEdit">
         <button
           mat-raised-button
           color="primary"
           (click)="showChanges(profileEdit.email)"
         >
-          View Changes
+          {{"SUPER_TABLE.VIEW"| translate}}
         </button>
       </td>
     </ng-container>

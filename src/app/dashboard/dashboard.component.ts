@@ -1,7 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginService } from "../service/login.service";
-import { LoginComponent } from "../login/login.component";
+import { TranslateService } from "@ngx-translate/core";
+
+function useLanguage(language: any) {
+  this.translate.use(language);
+}
 
 export interface Tile {
   color: string;
@@ -42,7 +46,18 @@ export class DashboardComponent implements OnInit {
     }
   ];
   isSupervisor: boolean;
-  constructor(private router: Router, private loginService: LoginService) {}
+
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    public translate: TranslateService
+  ) {
+    translate.addLangs(["en", "ro", "de"]);
+    translate.setDefaultLang("en");
+
+    const browserLang = translate.getBrowserLang();
+    translate.use("en");
+  }
 
   ngOnInit() {
     this.supervisorRoleCheck();
@@ -64,5 +79,9 @@ export class DashboardComponent implements OnInit {
     this.loginService.logout();
     localStorage.clear();
     this.router.navigate(["/login"]);
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
   }
 }

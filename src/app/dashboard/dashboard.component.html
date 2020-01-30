@@ -1,7 +1,4 @@
-<nav
-  class="navbar navbar-expand-lg navbar-dark"
-  style="background-color:#1F70E8"
->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1F70E8">
   <a class="navbar-brand" routerLink="notifications">
     <!-- {{'DASHBOARD.JBUGS' | translate}} -->
   </a>
@@ -22,6 +19,18 @@
   </ul>
 
   <ul class="navbar-nav nav-bar-right">
+    <li>
+      <div style="margin-top: 10px;">
+      <mat-radio-button checked class="radio" (click)="useLanguage('en')">en</mat-radio-button>
+      <mat-radio-button  class="radio" (click)="useLanguage('ro')">ro</mat-radio-button>
+      <mat-radio-button class="radio" (click)="useLanguage('de')">de</mat-radio-button>
+      </div>
+      <div id="content-area">
+        <router-outlet>
+
+        </router-outlet>
+      </div>
+    </li>
     <li class="nav-item" routerLinkActive="active">
       <a class="nav-link" routerLink (click)="logout()">
         <i class="pi pi-sign-out" (click)="logout()"></i>

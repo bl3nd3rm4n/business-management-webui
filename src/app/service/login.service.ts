@@ -11,14 +11,14 @@ import { take } from "rxjs/operators";
   providedIn: "root"
 })
 export class LoginService {
-  url = "http://localhost:6543";
+  url = "https://safe-shore-17677.herokuapp.com";
   constructor(
     private backendService: BackendService,
     private http: HttpClient
   ) {}
   
   sentToBackendUserCredentials(loginCreds: Login) {
-    return this.http.post("http://localhost:6543/login", loginCreds, {
+    return this.http.post("https://safe-shore-17677.herokuapp.com/login", loginCreds, {
       responseType: "text"
     });
   }

@@ -10,6 +10,6 @@ export class RegisterService {
   constructor(private http: HttpClient) {
   }
   sendToBackendUserRegister(registerCreds: Register){
-    return this.http.post('http://localhost:6543/register', registerCreds , { responseType: 'text'})
+    return this.http.post('https://safe-shore-17677.herokuapp.com/register', registerCreds , { responseType: 'text'})
   }
 }

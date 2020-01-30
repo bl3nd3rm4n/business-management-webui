@@ -6,7 +6,7 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class ProfileEditsService {
-  url = "http://localhost:6543";
+  url = "https://safe-shore-17677.herokuapp.com";
 
   constructor(private httpClient: HttpClient) {}
 

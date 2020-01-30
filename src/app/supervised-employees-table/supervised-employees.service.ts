@@ -12,6 +12,6 @@ export class SupervisedEmployeesService {
   getSupervisedEmployees(): Observable<any> {
     let currentEmail: String = localStorage.getItem("email");
 
-    return this.httpClient.get("http://localhost:6543/supervisor/" + currentEmail + "/users");
+    return this.httpClient.get("https://safe-shore-17677.herokuapp.com/supervisor/" + currentEmail + "/users");
   }
 }

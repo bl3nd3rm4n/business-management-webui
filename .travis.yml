@@ -9,7 +9,7 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
-- ng build --prod --base-href https://bmaris98.github.io/business-management-webui/
+- ng build --prod --base-href business-management-webui
 deploy:
   provider: pages
   skip_cleanup: true

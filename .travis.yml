@@ -9,8 +9,6 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
-- ng lint
-- npm run test-headless
 - ng build --prod --base-href https://bmaris98.github.io/business-management-webui/
 deploy:
   provider: pages

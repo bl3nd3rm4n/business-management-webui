@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.generateNumbers();
+    localStorage.setItem('supervisor', 'false')
     localStorage.setItem('loggedIn', 'false');
   }
 
@@ -51,7 +52,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('email', this.loginCreds.email);
         this.setToken(JSON.parse(response).token);
         this.authservice.loggedInSetter();
-        this.router.navigate(['/dashboard']);
+        this.loginservice.supervisorRoleCheck().subscribe( response => {
+          if (response == 'True') {
+            localStorage.setItem('supervisor', 'true');
+          }
+        })
+        this.router.navigate(['/dashboard/personal-info']);
       },
       error => {
         console.log(error);

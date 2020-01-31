@@ -8,3 +8,23 @@
   flex-direction: column;
   margin-left: 8px;
 }
+
+.links {
+  margin-right: 100px;
+}
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.logo-menu {
+  font-size: 20px;
+}

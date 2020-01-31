@@ -21,6 +21,7 @@ import { Observable } from 'rxjs';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import {MatNativeDateModule, MatRadioModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
 import {
   MatCardModule,
   MatDialogModule,
@@ -103,6 +104,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     MatDialogModule,
     CardModule,
+    MatMenuModule,
     MatSelectModule,
     MatNativeDateModule,
     MatToolbarModule,

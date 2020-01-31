@@ -1,82 +1,10 @@
-<mat-card class="example-card">
-  <mat-card-header style="text-align: center;">
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Iulian, the Cute Doggo</mat-card-title>
-    <mat-card-subtitle>Sleep, Eat, Bark and sleep again</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{'UTILS.PERSONAL_DATA' | translate}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{'UTILS.PERSONAL_DATA' | translate}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <mat-form-field>
-          <input matInput placeholder="{{'USERLIST.FirstName' | translate }}" value="Adrian">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="{{'USERLIST.LastName' | translate }}" value="Celentano">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="{{'USERLIST.AGE' | translate }}"  value="22">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <input matInput placeholder="{{'USERLIST.ROLE' | translate }}" value="Supervisor">
-        </mat-form-field>
-
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{'UTILS.PROJECT_DATA' | translate}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{'UTILS.EDIT_PROJECT' | translate}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <mat-form-field>
-          <input matInput placeholder="Current project" value="2019/6 : Agile Project NTT Data">
-        </mat-form-field>
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{'UTILS.SKILLS_PANNEL' | translate}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{'UTILS.EDIT_SKILLS' | translate}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-form-field class="example-chip-list">
-          <mat-chip-list #chipList aria-label="Fruit selection">
-            <mat-chip *ngFor="let skill of skills" [selectable]="selectable"
-                      [removable]="removable" (removed)="remove(skill)">
-              {{skill.name}}
-              <mat-icon matChipRemove *ngIf="removable"> X </mat-icon>
-            </mat-chip>
-            <input placeholder="New skill..."
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-        </mat-form-field>
-
-      </mat-expansion-panel>
-    </mat-accordion>
-
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button >Edit changes</button>
-  </mat-card-actions>
-</mat-card>
-
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-user-projects-table [diffMode]="false" [editMode] = "false"></app-user-projects-table>
+  </div>
+  </div>
+</div>

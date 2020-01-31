@@ -1,45 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1F70E8">
-  <a class="navbar-brand" routerLink="notifications">
-    <!-- {{'DASHBOARD.JBUGS' | translate}} -->
-  </a>
-
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="">
-        <i class="pi pi-sitemap"></i>
-        {{ "DASHBOARD.DASHBOARD" | translate }}
-      </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="personal-info">
-        <i class="pi pi-user"></i>
-        {{ "DASHBOARD.PROFILEPAGE" | translate }}
-      </a>
-    </li>
-  </ul>
-
-  <ul class="navbar-nav nav-bar-right">
-    <li>
-      <div style="margin-top: 10px;">
-      <mat-radio-button checked class="radio" (click)="useLanguage('en')">en</mat-radio-button>
-      <mat-radio-button  class="radio" (click)="useLanguage('ro')">ro</mat-radio-button>
-      <mat-radio-button class="radio" (click)="useLanguage('de')">de</mat-radio-button>
-      </div>
-      <div id="content-area">
-        <router-outlet>
-
-        </router-outlet>
-      </div>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink (click)="logout()">
-        <i class="pi pi-sign-out" (click)="logout()"></i>
-        {{ "DASHBOARD.LOGOUT" | translate }}
-      </a>
-    </li>
-  </ul>
-</nav>
-
 <div *ngIf="isSupervisor">
   <mat-tab-group>
     <mat-tab label="Account Registration">
@@ -65,17 +23,9 @@
   </mat-tab-group>
 </div>
 
-<div class="container-fluid main--container" style="margin-top: 2%;">
-  <router-outlet></router-outlet>
+
+<div id="content-area">
+  <router-outlet>
+
+  </router-outlet>
 </div>
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile
-    *ngFor="let tile of tiles"
-    [routerLink]="tile.link"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color"
-  >
-    {{ tile.text }}
-  </mat-grid-tile>
-</mat-grid-list>

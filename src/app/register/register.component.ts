@@ -23,7 +23,11 @@ export class RegisterComponent implements OnInit {
   register(email, pass) {
     this.registercreds = {
       email: email.value,
-      password: pass.value
+      password: pass.value,
+      regionId: "1",
+      firstName: " ",
+      lastName: " ",
+      consultingLevelId: "1"
     };
 
     this.registerService.sendToBackendUserRegister(this.registercreds).subscribe(

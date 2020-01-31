@@ -1,21 +1,21 @@
 <div *ngIf="isSupervisor">
   <mat-tab-group>
-    <mat-tab label="Account Registration">
+    <mat-tab label="{{'TABS.REGISTRATIONS'| translate}}">
       <ng-template matTabContent>
         <app-registration-requests-table></app-registration-requests-table>
       </ng-template>
     </mat-tab>
-    <mat-tab label="Profile Edits">
+    <mat-tab label="{{'TABS.EDITS'| translate}}">
       <ng-template matTabContent>
         <app-profile-edits-table></app-profile-edits-table>
       </ng-template>
     </mat-tab>
-    <mat-tab label="View All Employees">
+    <mat-tab label="{{'TABS.ALL'| translate}}">
       <ng-template matTabContent>
         <app-supervised-employees-table></app-supervised-employees-table>
       </ng-template>
     </mat-tab>
-    <mat-tab label="Blocked Useres">
+    <mat-tab label="{{'TABS.BLOCKED'| translate}}">
       <ng-template matTabContent>
         <app-blocked-users-table></app-blocked-users-table>
       </ng-template>

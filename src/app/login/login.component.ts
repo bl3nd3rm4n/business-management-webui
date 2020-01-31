@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('supervisor', 'true');
           }
         })
-        this.router.navigate(['/dashboard/personal-info']);
+        this.router.navigate(['/profile']);
       },
       error => {
         console.log(error);

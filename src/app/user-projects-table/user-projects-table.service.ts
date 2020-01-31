@@ -87,4 +87,11 @@ export class ProjectsService {
         let url ='https://safe-shore-17677.herokuapp.com/rpc/patch-skill';
         return this.http.post<Skill>(url, map, {headers: this.getHeaders()});
     }
+
+    getBySkill(skill): Observable<HttpResponse<Object[]>> {
+        let url = 'https://safe-shore-17677.herokuapp.com/supervisor/getBySkill';
+        let token = localStorage.getItem("token");
+        debugger;
+        return this.http.post<Object[]>(url, { "skillId": skill.id }, { observe: 'response' });
+    }
 }

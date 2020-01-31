@@ -1,4 +1,22 @@
 {
+  "TABS": {
+    "REGISTRATIONS": "Anmeldungen",
+    "EDITS": "Profiländerungen",
+    "ALL": "Alle Benutzer sehen",
+    "BLOCKED": "Gesperrte Benutzer",
+    "SEARCH": "Suche nach Skills"
+  },
+  "SEARCH": {
+    "LABEL": "Skill auswählen",
+    "404": "Es gibt keine Benutzer, die diesen Skill haben.",
+    "SUBMIT": "Suche Benutzer",
+    "NUME": "Name"
+  },
+  "MENU": {
+    "LOGOUT": "Ausloggen",
+    "ADMIN": "Admin Seite",
+    "PROFILE": "Profil ansehen"
+  },
   "HOME": {
     "TITLE": "Einloggen",
     "SELECT": "ändere Sprache"

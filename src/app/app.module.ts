@@ -65,6 +65,7 @@ import { AddSkillDialogComponent } from './add-skill-dialog/add-skill-dialog.com
 import { ProfileEditsTableComponent } from './profile-edits-table/profile-edits-table.component';
 import { DiffPageComponent } from './diff-page/diff-page.component';
 import {SupervisedEmployeesTableComponent} from "./supervised-employees-table/supervised-employees-table.component";
+import { SearchComponent } from './search/search.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -94,7 +95,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AddSkillDialogComponent,
     ProfileEditsTableComponent,
     SupervisedEmployeesTableComponent,
-    DiffPageComponent
+    DiffPageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

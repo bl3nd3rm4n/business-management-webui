@@ -4,9 +4,9 @@
             <span id="logo" class="toolbar">
                 <button mat-button [matMenuTriggerFor]="menu" class="logo-menu">BusinessManagement</button>
                 <mat-menu #menu="matMenu">
-                <button *ngIf="checkLogin()" routerLink="/profile" mat-menu-item>Peronsal Profile</button>
-                <button *ngIf="checkLogin() && supervisorRoleCheck()" routerLink="/dashboard" mat-menu-item>Admin Dashboard</button>
-                <button *ngIf="checkLogin()" (click) = "logout()" routerLink mat-menu-item>Logout</button>
+                <button *ngIf="checkLogin()" routerLink="/profile" mat-menu-item>{{"MENU.PROFILE"| translate}}</button>
+                <button *ngIf="checkLogin() && supervisorRoleCheck()" routerLink="/dashboard" mat-menu-item>{{"MENU.ADMIN"| translate}}</button>
+                <button *ngIf="checkLogin()" (click) = "logout()" routerLink mat-menu-item>{{"MENU.LOGOUT"| translate}}</button>
                 </mat-menu>
             </span>
           <mat-radio-button checked class="radio" color="accent" (click)="useLanguage('en')" >en </mat-radio-button>

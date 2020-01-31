@@ -6,10 +6,13 @@ sudo: required
 branches:
   only:
   - master
-before_script:
-  - npm install -g @angular/cli
+cache:
+  directories:
+     - ./node_modules
+install:
+  - npm install
 script:
-- ng build --prod --base-href business-management-webui
+- npm run-script build
 deploy:
   provider: pages
   skip_cleanup: true

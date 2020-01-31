@@ -48,6 +48,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
+              "baseHref": "https://bmaris98.github.io/business-management-webui/",
               "buildOptimizer": true,
               "budgets": [
                 {

@@ -42,7 +42,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from 'primeng/shared';
 import { CardModule } from 'primeng/card';
-import { FileSelectDirective } from 'ng2-file-upload';
 import { Ng2FileSizeModule } from 'ng2-file-size';
 import { SkillChartComponent } from './skill-chart/skill-chart.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
@@ -79,7 +78,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PlaygroundComponent,
     ProfileComponent,
     RegisterComponent,
-    FileSelectDirective,
     SkillChartComponent,
     PersonalInfoComponent,
     PersonalInfoComponent,

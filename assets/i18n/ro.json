@@ -1,4 +1,22 @@
 {
+  "TABS": {
+    "REGISTRATIONS": "Inregistrari",
+    "EDITS": "Editari profil",
+    "ALL": "Toti angajatii",
+    "BLOCKED": "Angajati blocati",
+    "SEARCH": "Cautare dupa skill"
+  },
+  "SEARCH": {
+    "LABEL": "Alege skill",
+    "404": "Nu exista niciun utilizator cu acest skill.",
+    "SUBMIT": "Cauta utilizatori",
+    "NUME": "Nume"
+  },
+  "MENU": {
+    "LOGOUT": "Delogare",
+    "ADMIN": "Pagina Admin",
+    "PROFILE": "Vizualizare Profil"
+  },
   "HOME": {
     "TITLE": "Conectare",
     "SELECT": "Schimba Limba"

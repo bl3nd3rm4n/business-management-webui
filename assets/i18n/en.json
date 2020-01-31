@@ -1,4 +1,22 @@
 {
+  "TABS": {
+    "REGISTRATIONS": "Account registrations",
+    "EDITS": "Profile edits",
+    "ALL": "View all employees",
+    "BLOCKED": "Blocked users",
+    "SEARCH": "Search by skill"
+  },
+  "SEARCH": {
+    "LABEL": "Select skill",
+    "404": "There is no user with this skill.",
+    "SUBMIT": "Search users.",
+    "NUME": "Name"
+  },
+  "MENU": {
+    "LOGOUT": "Logout",
+    "ADMIN": "Admin Page",
+    "PROFILE": "View Profile"
+  },
   "HOME": {
     "TITLE": "Sign in",
     "SELECT": "Change language"

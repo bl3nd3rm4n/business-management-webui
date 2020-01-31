@@ -67,7 +67,7 @@ import { DiffPageComponent } from './diff-page/diff-page.component';
 import {SupervisedEmployeesTableComponent} from "./supervised-employees-table/supervised-employees-table.component";
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient);
+  return new TranslateHttpLoader(httpClient, './assets/i18n', '.json');
 }
 @NgModule({
   declarations: [
